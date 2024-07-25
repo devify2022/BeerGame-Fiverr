@@ -1,9 +1,10 @@
 import React from "react";
+import SideBar from "../components/dashboard/SideBar";
 
 const Dashboard = () => {
   return (
     <div>
-      <h1 className="text-red-500">TExt</h1>
+      <SideBar />
     </div>
   );
 };

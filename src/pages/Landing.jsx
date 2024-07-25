@@ -3,7 +3,7 @@ import Footer from "../components/global/Footer";
 const Landing = () => {
   return (
     <div>
-      <Footer />
+     Home
     </div>
   );
 };

@@ -1,6 +1,6 @@
-import Blogs4 from "../../assets/Blogs/Blogs4.png"
-import Blogs5 from "../../assets/Blogs/Blogs5.png"
-import Blogs6 from "../../assets/Blogs/Blogs6.png"
+import Blogs4 from "../../assets/blogs/Blogs4.png"
+import Blogs5 from "../../assets/blogs/Blogs5.png"
+import Blogs6 from "../../assets/blogs/Blogs6.png"
 import { FaArrowRight } from "react-icons/fa";
 
 const CaseStudies = () => {

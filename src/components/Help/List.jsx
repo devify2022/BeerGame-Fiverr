@@ -1,9 +1,9 @@
-import Logo1 from "../../assets/Help/Logo1.png"
-import Logo2 from "../../assets/Help/Logo2.png"
-import Logo3 from "../../assets/Help/Logo3.png"
-import Logo4 from "../../assets/Help/Logo4.png"
-import Logo5 from "../../assets/Help/Logo5.png"
-import Logo6 from "../../assets/Help/Logo6.png"
+import Logo1 from "../../assets/help/Logo1.png"
+import Logo2 from "../../assets/help/Logo2.png"
+import Logo3 from "../../assets/help/Logo3.png"
+import Logo4 from "../../assets/help/Logo4.png"
+import Logo5 from "../../assets/help/Logo5.png"
+import Logo6 from "../../assets/help/Logo6.png"
 
 const List = () => {
 

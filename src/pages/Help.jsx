@@ -1,5 +1,5 @@
-import HeroSection from "../components/Help/HeroSection"
-import List from "../components/Help/List"
+import HeroSection from "../components/help/HeroSection"
+import List from "../components/help/List"
 
 const Help = () => {
   return (

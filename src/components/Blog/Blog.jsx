@@ -54,8 +54,8 @@ const Blog = () => {
                 <img src={item.image} alt="img" className="w-full h-full" />
               </div>
               <div className="w-full h-[50%]">
-                <p className="font-semibold xl:text-[1rem] lg:text-[.8rem] md:text-[.8rem] text-[.8rem]">{item.heading}</p>
-                <p className="text-[#4F5665] xl:text-[.7rem] lg:text-[.7rem] md:text-[.7rem] text-[.6rem]">{item.para}</p>
+                <p className="font-semibold xl:text-[1rem] lg:text-[.8rem] md:text-[.8rem] text-[.7rem]">{item.heading}</p>
+                <p className="text-[#4F5665] xl:text-[.7rem] lg:text-[.7rem] md:text-[.7rem] text-[.5rem]">{item.para}</p>
               </div>
             </div>
           ))

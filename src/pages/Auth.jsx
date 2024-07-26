@@ -1,8 +1,8 @@
-import React from 'react'
+import SignIn from "../components/auth/SignIn"
 
 const Auth = () => {
   return (
-    <div>auth</div>
+    <div><SignIn/></div>
   )
 }
 

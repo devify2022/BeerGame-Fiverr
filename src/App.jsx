@@ -1,7 +1,7 @@
 // src/App.jsx
 // import React from "react";
 import { Routes, Route } from "react-router-dom";
-import Footer from "./components/global/Footer";
+// import Footer from "./components/global/Footer";
 
 import About from "./pages/About";
 import Auth from "./pages/Auth";
@@ -21,7 +21,7 @@ function App() {
         <Route path="/blogs" element={<Blogs />} />
         <Route path="/auth" element={<Auth />} />
       </Routes>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }

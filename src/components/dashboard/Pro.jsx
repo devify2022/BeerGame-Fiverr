@@ -1,5 +1,5 @@
 import React from "react";
-
+import diamond from "../../assets/dashboard/diamondIcon.svg";
 const Pro = ({ isExpanded, isLargeScreen }) => {
   return (
     <div className="   lg:h-[20rem] md:h-[30rem] cursor-pointer w-auto flex justify-center items-center">
@@ -13,11 +13,7 @@ const Pro = ({ isExpanded, isLargeScreen }) => {
         }   xl:w-[78%] lg:w-[80%] h-[10rem] w-[20rem] flex justify-around   items-center flex-col  rounded-2xl relative`}
       >
         <div className="absolute xl:top-[-40px] xl:left-[50%] lg:top-[-30px] lg:left-[50%] top-[-30px] left-[50%] transform -translate-x-1/2 xl:w-[6rem] xl:h-[6rem] lg:w-[4rem] lg:h-[4rem] w-[4rem] h-[4rem] bg-white border-4 border-[#0091D1] rounded-full flex justify-center items-center">
-          <img
-            src="src/assets/dashboard/diamondIcon.svg"
-            alt="Diamond Icon"
-            className="w-[75%] h-[75%]"
-          />
+          <img src={diamond} alt="Diamond Icon" className="w-[75%] h-[75%]" />
         </div>
         <div
           className={`xl:mt-8 md:mt-4 ${

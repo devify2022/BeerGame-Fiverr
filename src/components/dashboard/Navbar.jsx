@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import PopUp from "./PopUp";
+import user from "../../assets/dashboard/user.png";
 const Navbar = ({ isExpanded }) => {
   const [openPopUp, setOpenPopUp] = useState(false);
   const [value, setValue] = useState("English");
@@ -28,7 +29,7 @@ const Navbar = ({ isExpanded }) => {
         <div className="md:w-[50%] w-[60%] h-full md:px-0 px-2 flex   justify-end items-center md:gap-x-2 gap-x-0">
           <div className="relative  md:h-[3rem] md:w-[3rem] w-[2rem] h-[2rem] flex justify-center items-center rounded-full">
             <img
-              src="src/assets/dashboard/user.png"
+              src={user}
               className="w-[2rem] h-[2rem] md:w-full md:h-full"
               alt=""
             />

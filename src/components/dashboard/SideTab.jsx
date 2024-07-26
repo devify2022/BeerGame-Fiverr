@@ -1,5 +1,7 @@
 import React from "react";
-
+import sessionIcon from "../../assets/dashboard/sessions.svg";
+import settingsIcon from "../../assets/dashboard/settings.svg";
+import templateIcon from "../../assets/dashboard/template.svg";
 const SideTab = ({
   selectedTab,
   setSelectedTab,
@@ -23,11 +25,7 @@ const SideTab = ({
             isExpanded ? "w-[20%]" : isLargeScreen ? "w-[20%]" : "w-[100%]"
           }  h-full flex justify-center items-center`}
         >
-          <img
-            src="src/assets/dashboard/sessions.svg"
-            alt=""
-            style={{ transform: "scale(1.2)" }}
-          />
+          <img src={sessionIcon} alt="" style={{ transform: "scale(1.2)" }} />
         </div>
         <div
           className={`w-[75%] h-full flex justify-start items-center ${
@@ -50,11 +48,7 @@ const SideTab = ({
             isExpanded ? "w-[20%]" : isLargeScreen ? "w-[20%]" : "w-[100%]"
           }  h-full flex justify-center items-center`}
         >
-          <img
-            src="src/assets/dashboard/template.svg"
-            alt=""
-            style={{ transform: "scale(1.2)" }}
-          />
+          <img src={templateIcon} alt="" style={{ transform: "scale(1.2)" }} />
         </div>
         <div
           className={`w-[75%] h-full flex justify-start items-center ${
@@ -77,11 +71,7 @@ const SideTab = ({
             isExpanded ? "w-[20%]" : isLargeScreen ? "w-[20%]" : "w-[100%]"
           }  h-full flex justify-center items-center`}
         >
-          <img
-            src="src/assets/dashboard/settings.svg"
-            alt=""
-            style={{ transform: "scale(1.2)" }}
-          />
+          <img src={settingsIcon} alt="" style={{ transform: "scale(1.2)" }} />
         </div>
         <div
           className={`w-[75%] h-full flex justify-start items-center ${

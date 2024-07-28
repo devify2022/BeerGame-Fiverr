@@ -1,6 +1,6 @@
-import Blogs7 from "../../assets/blogs/Blogs7.png"
-import Blogs8 from "../../assets/blogs/Blogs8.png"
-import Blogs9 from "../../assets/blogs/Blogs9.png"
+import Blogs7 from "../../assets/Blogs/Blogs7.png"
+import Blogs8 from "../../assets/Blogs/Blogs8.png"
+import Blogs9 from "../../assets/Blogs/Blogs9.png"
 import { FaArrowRight } from "react-icons/fa";
 
 const TeachingGuide = () => {

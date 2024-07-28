@@ -1,11 +1,9 @@
+import { useState } from "react";
 import hero from "../assets/hero/hero.png";
 import icon1 from "../assets/landing/icon1.png";
 import icon2 from "../assets/landing/icon2.png";
 import icon3 from "../assets/landing/icon3.png";
 import icon4 from "../assets/landing/icon4.png";
-import icon5 from "../assets/landing/icon5.png";
-import icon6 from "../assets/landing/icon6.png";
-import icon7 from "../assets/landing/icon7.png";
 import benifit from "../assets/landing/benifit.png";
 import checkIcon from "../assets/landing/checkIcon.png";
 import tracks from "../assets/landing/tracks.png";
@@ -34,8 +32,13 @@ import rating from "../assets/landing/rating.png";
 import pagination from "../assets/landing/pagination.png";
 import right from "../assets/landing/right.png";
 import left from "../assets/landing/left.png";
+import Icon1 from "../assets/landing/Icon1.jsx";
+import Icon2 from "../assets/landing/Icon2.jsx";
+import Icon3 from "../assets/landing/Icon3.jsx";
 
 const Landing = () => {
+  const [isHovered, setIsHovered] = useState(0);
+
   return (
     <main>
       {/* HERO SECTION */}
@@ -125,12 +128,16 @@ const Landing = () => {
           We are the preferred choice for many reasons.
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mt-24 gap-20 md:gap-10 lg:gap-10">
-          <div className="text-center border-2 border-gray-200 hover:border-[#34B3F1] p-10 rounded-lg md:h-[370px] md:w-[350px] lg:h-[370px] lg:w-[400px] transition-colors duration-300 group">
-            <img
-              src={icon5}
-              className="h-[100px] w-[100px] p-4 mx-auto border-2 border-gray-200 rounded-full bg-white transition-colors duration-300 group-hover:border-[#34B3F1] group-hover:text-[#34B3F1] mt-[-40%] md:mt-[-35%] lg:mt-[-30%]"
-              alt=""
-            />
+          <div
+            onMouseEnter={() => setIsHovered(1)}
+            onMouseLeave={() => setIsHovered(0)}
+            className="text-center border-2 border-gray-200 hover:border-[#34B3F1] p-10 rounded-lg md:h-[370px] md:w-[350px] lg:h-[370px] lg:w-[400px] transition-colors duration-300 group"
+          >
+            <div className="w-full flex justify-center items-center">
+              <div className="p-4 border-2  border-gray-200 rounded-full bg-white transition-colors duration-300 group-hover:border-[#34B3F1] group-hover:text-[#34B3F1] mt-[-40%] md:mt-[-35%] lg:mt-[-30%]">
+                <Icon1 color={isHovered === 1 ? "#34B3F1" : "#4F5665"} />
+              </div>
+            </div>
             <div className="flex flex-col justify-center items-center">
               <h2 className="mt-10 text-3xl text-gray-700 group-hover:text-[#34B3F1] font-semibold">
                 Effortless Setup
@@ -142,39 +149,44 @@ const Landing = () => {
             </div>
           </div>
 
-          <div className="text-center border-2 border-[#34B3F1] p-10 rounded-lg md:h-[370px] md:w-[350px] lg:h-[370px] lg:w-[400px]">
-            <img
-              src={icon6}
-              className="h-[100px] w-[100px] p-4 mx-auto text-[#34B3F1] border-2 border-[#34B3F1] rounded-full mt-[-40%] md:mt-[-35%] lg:mt-[-30%] bg-white"
-              alt=""
-            />
+          <div
+            onMouseEnter={() => setIsHovered(2)}
+            onMouseLeave={() => setIsHovered(0)}
+            className="text-center border-2 border-gray-200 hover:border-[#34B3F1] p-10 rounded-lg md:h-[370px] md:w-[350px] lg:h-[370px] lg:w-[400px] transition-colors duration-300 group"
+          >
+            <div className="w-full flex justify-center items-center">
+              <div className="p-4 border-2  border-gray-200 rounded-full bg-white transition-colors duration-300 group-hover:border-[#34B3F1] group-hover:text-[#34B3F1] mt-[-40%] md:mt-[-35%] lg:mt-[-30%]">
+                <Icon2 color={isHovered === 2 ? "#34B3F1" : "#4F5665"} />
+              </div>
+            </div>
             <div className="flex flex-col justify-center items-center">
-              <h2 className="mt-10 text-3xl text-[#34B3F1] font-semibold">
-                Detailed Analytics
+              <h2 className="mt-10 text-3xl text-gray-700 group-hover:text-[#34B3F1] font-semibold">
+                Effortless Setup
               </h2>
               <p className="mt-3 text-xl text-gray-700">
-                Our Beer Game generates exportable reports and stats for
-                debriefing players and reinforcing lessons. Gain valuable
-                insights with detailed post-game analytics.
+                Our intuitive platform enables instructors to set up their games
+                in a flash. Enjoy a hassle-free start with minimal effort.
               </p>
             </div>
           </div>
 
-          <div className="text-center border-2 border-gray-200 hover:border-[#34B3F1] p-10 rounded-lg md:h-[370px] md:w-[400px] lg:h-[370px] lg:w-[400px] transition-colors duration-300 group">
-            <img
-              src={icon7}
-              className="h-[100px] w-[100px] p-4 mx-auto border-2 border-gray-200 rounded-full bg-white transition-colors duration-300 group-hover:border-[#34B3F1] group-hover:text-[#34B3F1] mt-[-40%] md:mt-[-30%] lg:mt-[-30%]"
-              alt=""
-            />
+          <div
+            onMouseEnter={() => setIsHovered(3)}
+            onMouseLeave={() => setIsHovered(0)}
+            className="text-center border-2 border-gray-200 hover:border-[#34B3F1] p-10 rounded-lg md:h-[370px] md:w-[350px] lg:h-[370px] lg:w-[400px] transition-colors duration-300 group"
+          >
+            <div className="w-full flex justify-center items-center">
+              <div className="p-4 border-2  border-gray-200 rounded-full bg-white transition-colors duration-300 group-hover:border-[#34B3F1] group-hover:text-[#34B3F1] mt-[-40%] md:mt-[-35%] lg:mt-[-30%]">
+                <Icon3 color={isHovered === 3 ? "#34B3F1" : "#4F5665"} />
+              </div>
+            </div>
             <div className="flex flex-col justify-center items-center">
-              <h2 className="mt-10 text-3xl group-hover:text-[#34B3F1] text-gray-700 font-semibold">
-                Full Immersion
+              <h2 className="mt-10 text-3xl text-gray-700 group-hover:text-[#34B3F1] font-semibold">
+                Effortless Setup
               </h2>
               <p className="mt-3 text-xl text-gray-700">
-                Our Beer Game delivers the {`market's`} most immersive
-                experience, making supply chain learning faster and more
-                effective. Dive deep into realistic scenarios for impactful
-                learning.
+                Our intuitive platform enables instructors to set up their games
+                in a flash. Enjoy a hassle-free start with minimal effort.
               </p>
             </div>
           </div>
@@ -371,16 +383,16 @@ const Landing = () => {
             className="h-[50px] w-[70px]  md:h-[100px] md:w-[170px] lg:h-[100px] lg:w-[170px]"
             alt=""
           />
-          <h1 className="text-[#F15412] text-4xl border lg:mr-[25%] lg:text-6xl font-semibold underline">
+          <h1 className="text-[#F15412] text-4xl lg:mr-[25%] lg:text-6xl font-semibold underline">
             STEP 2
           </h1>
         </div>
 
-        <div className="flex flex-col-reverse md:flex-col-reverse lg:flex-row justify-center items-center lg:gap-28">
-          <div className="step2 w-[60%] relative mt-0 md:mt-16 lg:mt-0">
+        <div className="flex flex-col-reverse md:flex-col-reverse lg:flex-row justify-center h-[500px] border-black items-center lg:gap-10">
+          <div className="step2  h-[60%] relative mt-0 md:mt-16 lg:mt-0 p-8">
             <img
               src={stepBack}
-              className="h-full w-full absolute top-0 left-0 z-0"
+              className="h-full w-[80%] absolute top-0 left-0 z-0"
               alt="Background Image"
             />
             <img

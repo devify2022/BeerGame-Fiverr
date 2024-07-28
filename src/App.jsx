@@ -1,15 +1,14 @@
 // src/App.jsx
-import React from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 import Footer from "./components/global/Footer";
 import Navbar from "./components/global/Navbar"; // Import Navbar if you have one
-
 import About from "./pages/About";
 import Auth from "./pages/Auth";
 import Blogs from "./pages/Blogs";
 import Dashboard from "./pages/Dashboard";
 import Help from "./pages/Help";
 import Landing from "./pages/Landing";
+// import Navbar from "./components/global/Navbar";
 
 function App() {
   const location = useLocation();

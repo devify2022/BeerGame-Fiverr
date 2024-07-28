@@ -1,6 +1,6 @@
-import Blogs1 from "../../assets/blogs/Blogs1.png"
-import Blogs2 from "../../assets/blogs/Blogs2.png"
-import Blogs3 from "../../assets/blogs/Blogs3.png"
+import Blogs1 from "../../assets/Blogs/Blogs1.png"
+import Blogs2 from "../../assets/Blogs/Blogs2.png"
+import Blogs3 from "../../assets/Blogs/Blogs3.png"
 import { FaArrowRight } from "react-icons/fa";
 
 const Blog = () => {

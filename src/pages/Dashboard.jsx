@@ -4,7 +4,7 @@ import SideBar from "../components/dashboard/SideBar";
 import Navbar from "../components/dashboard/Navbar";
 import InitialSessions from "../components/dashboard/InitialSessions";
 import Session from "../components/dashboard/Session";
-import SessionCards from "../components/dashboard/SessionCards";
+import Settings from "../components/dashboard/Settings";
 
 const Dashboard = () => {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -12,7 +12,7 @@ const Dashboard = () => {
   const [showInitialScreen, setShowInititalScreen] = useState(true);
 
   return (
-    <div className="flex h-screen">
+    <div className="flex h-screen bg-[#fafafa]">
       <SideBar
         setIsExpanded={setIsExpanded}
         isExpanded={isExpanded}
@@ -22,11 +22,15 @@ const Dashboard = () => {
       <div className="ml-[20%] md:ml-[10%] lg:ml-[20%]  w-full h-full  flex justify-start items-start">
         <div className="w-full ">
           <Navbar isExpanded={isExpanded} />
-          {showInitialScreen ? (
-            <InitialSessions setShowInititalScreen={setShowInititalScreen} />
-          ) : (
-            <Session />
-          )}
+          {selectedTab === "sessions" ? (
+            showInitialScreen ? (
+              <InitialSessions setShowInititalScreen={setShowInititalScreen} />
+            ) : (
+              <Session />
+            )
+          ) : selectedTab === "settings" ? (
+            <Settings />
+          ) : null}
         </div>
       </div>
     </div>

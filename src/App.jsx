@@ -10,6 +10,7 @@ import Blogs from "./pages/Blogs";
 import Dashboard from "./pages/Dashboard";
 import Help from "./pages/Help";
 import Landing from "./pages/Landing";
+import Game from "./pages/Game";
 
 function App() {
   const location = useLocation();
@@ -25,6 +26,7 @@ function App() {
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/blogs" element={<Blogs />} />
         <Route path="/auth" element={<Auth />} />
+        <Route path="/game" element={<Game/>} />
       </Routes>
       {!isDashboardPage && <Footer />} {/* Conditionally render Footer */}
     </div>

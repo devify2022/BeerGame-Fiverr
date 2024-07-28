@@ -8,3 +8,11 @@
     margin: 0;
     padding: 0;
 }
+
+.Game{
+    background-image: url('./assets/Game/game.png');
+}
+
+.Boat{
+    background-image: url('./assets/Game/boat2.png');
+}

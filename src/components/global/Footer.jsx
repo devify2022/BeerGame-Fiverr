@@ -1,5 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import fbIcon from "../../assets/icons/facebook.svg"
+import instaIcon from "../../assets/icons/instagram.svg"
+import twitterIcon from "../../assets/icons/twitter.svg"
 const Footer = () => {
   return (
     <div className="w-full h-fit bg-[#f8f8f8]">
@@ -12,26 +15,32 @@ const Footer = () => {
           </p>
           <div className="mt-[1rem] mb-[2rem] w-32 h-fit  justify-between items-center hidden md:flex">
             <div
-              className="w-6 h-6 rounded-full bg-red-500 flex justify-center items-center bg-center bg-no-repeat"
-              style={{
-                backgroundImage: "url(src/assets/icons/facebook.svg)",
-                transform: "scale(1.5)",
-              }}
-            ></div>
+              className="w-5 h-5 rounded-full bg-red-500 flex justify-center items-center bg-center bg-no-repeat"
+             
+            >
+                 <img src={fbIcon} alt="" className="bg-red-500 rounded-full " style={{
+               
+               transform: "scale(2.0)",
+             }} />
+            </div>
             <div
-              className="w-6 h-6 rounded-full bg-red-500 flex justify-center items-center bg-center bg-no-repeat"
-              style={{
-                backgroundImage: "url(src/assets/icons/instagram.svg)",
-                transform: "scale(1.5)",
-              }}
-            ></div>
+              className="w-5 h-6 rounded-full  flex justify-center items-center bg-center bg-no-repeat"
+              
+            >
+              <img src={instaIcon} className="bg-red-500 rounded-full " style={{
+               
+               transform: "scale(2.0)",
+             }} alt="" />
+            </div>
             <div
-              className="w-6 h-6 rounded-full bg-red-500 flex justify-center items-center bg-center bg-no-repeat"
-              style={{
-                backgroundImage: "url(src/assets/icons/twitter.svg)",
-                transform: "scale(1.5)",
-              }}
-            ></div>
+              className="w-5 h-5 rounded-full bg-red-500 flex justify-center items-center bg-center bg-no-repeat"
+              
+            >
+                  <img src={twitterIcon} className="bg-red-500 rounded-full " style={{
+               
+               transform: "scale(2.0)",
+             }} alt="" />
+            </div>
           </div>
           <p className="text-[1.3rem] md:block hidden">©2024BeerGame</p>
         </div>

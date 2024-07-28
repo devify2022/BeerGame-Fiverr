@@ -446,7 +446,7 @@ const Landing = () => {
       </section>
 
       {/* STEP 1 */}
-      <section className="step my-20 lg:px-14">
+      <section className="step my-20 lg:px-14 ">
         <div className="flex justify-between items-center px-5 md:px-10 lg:px-24">
           <h1 className="text-[#34B3F1] text-4xl lg:text-6xl font-semibold underline">
             STEP 1
@@ -500,8 +500,9 @@ const Landing = () => {
       </section>
 
       {/* STEP 2 */}
-      <section className="step my-20 lg:px-14">
-        <div className="flex justify-between items-center px-5 md:px-10 lg:px-24">
+      <section className="step my-20 flex lg:flex-row lg:px-14 ">
+        <div className="w-full flex flex-col justify-between items-center ">
+        <div className="flex h-[30%] w-full justify-between items-center px-5 md:px-10 lg:px-24">
           <img
             src={pointer2}
             className="h-[50px] w-[70px]  md:h-[100px] md:w-[170px] lg:h-[100px] lg:w-[170px]"
@@ -512,7 +513,7 @@ const Landing = () => {
           </h1>
         </div>
 
-        <div className="flex flex-col-reverse md:flex-col-reverse lg:flex-row justify-center h-[500px] border-black items-center lg:gap-10">
+        <div className="flex  flex-col-reverse md:flex-col-reverse lg:flex-row justify-center  border-black items-center lg:gap-10">
           <div className="step2  h-[60%] relative mt-0 md:mt-16 lg:mt-0 p-8">
             <img
               src={stepBack}
@@ -561,6 +562,7 @@ const Landing = () => {
               </div>
             </div>
           </div>
+        </div>
         </div>
       </section>
 

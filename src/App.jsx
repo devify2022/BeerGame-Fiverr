@@ -1,9 +1,7 @@
 // src/App.jsx
-import React from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 import Footer from "./components/global/Footer";
 import Navbar from "./components/global/Navbar"; // Import Navbar if you have one
-
 import About from "./pages/About";
 import Auth from "./pages/Auth";
 import Blogs from "./pages/Blogs";

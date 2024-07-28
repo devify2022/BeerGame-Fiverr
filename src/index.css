@@ -36,3 +36,14 @@
 .custom-button:hover:not(:disabled) .custom-icon {
   color: #fff; /* White color for the icon on hover */
 }
+
+.Game{
+    background-image: url('./assets/Game/game.png');
+}
+
+.Boat{
+    background-image: url('./assets/Game/boat2.png');
+}
+.Boat2{
+    background-image: url('./assets/Game/boat1.png');
+}

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import hero from "../assets/hero/hero.png";
 import icon1 from "../assets/landing/icon1.png";
 import icon2 from "../assets/landing/icon2.png";
@@ -35,9 +35,128 @@ import left from "../assets/landing/left.png";
 import Icon1 from "../assets/landing/Icon1.jsx";
 import Icon2 from "../assets/landing/Icon2.jsx";
 import Icon3 from "../assets/landing/Icon3.jsx";
+import { GoArrowLeft, GoArrowRight } from "react-icons/go";
 
 const Landing = () => {
   const [isHovered, setIsHovered] = useState(0);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [slideDirection, setSlideDirection] = useState(null); // 'left' or 'right'
+  const [itemsPerView, setItemsPerView] = useState(3);
+
+  const reviews = [
+    {
+      name: "Viezh Robert",
+      location: "Warsaw, Poland",
+      rating: 4.5,
+      avatar: avatar1,
+      review:
+        "Wow... I am very happy to use this VPN, it turned out to be more than my expectations and so far there have been no problems. LaslesVPN always the best.",
+    },
+    {
+      name: "Yessica Christy",
+      location: "Shanxi, China",
+      rating: 4.5,
+      avatar: avatar2,
+      review:
+        "I like it because I like to travel far and still can connect with high speed.",
+    },
+    {
+      name: "Kim  Jou",
+      location: "Seoul, South Korea",
+      rating: 4.5,
+      avatar: avatar1,
+      review:
+        "This is very unusual for my business that currently requires a virtual private network that has high security.",
+    },
+    {
+      name: "Viezh doe",
+      location: "Warsaw, Poland",
+      rating: 4.5,
+      avatar: avatar1,
+      review:
+        "Wow... I am very happy to use this VPN, it turned out to be more than my expectations and so far there have been no problems. LaslesVPN always the best.",
+    },
+    {
+      name: "Yessica rob",
+      location: "Shanxi, China",
+      rating: 4.5,
+      avatar: avatar2,
+      review:
+        "I like it because I like to travel far and still can connect with high speed.",
+    },
+    {
+      name: "Kim  Jou",
+      location: "Seoul, South Korea",
+      rating: 4.5,
+      avatar: avatar1,
+      review:
+        "This is very unusual for my business that currently requires a virtual private network that has high security.",
+    },
+    {
+      name: "Viezh Robert",
+      location: "Warsaw, Poland",
+      rating: 4.5,
+      avatar: avatar1,
+      review:
+        "Wow... I am very happy to use this VPN, it turned out to be more than my expectations and so far there have been no problems. LaslesVPN always the best.",
+    },
+    {
+      name: "Yessica Christy",
+      location: "Shanxi, China",
+      rating: 4.5,
+      avatar: avatar2,
+      review:
+        "I like it because I like to travel far and still can connect with high speed.",
+    },
+    {
+      name: "Kim  Jou",
+      location: "Seoul, South Korea",
+      rating: 4.5,
+      avatar: avatar1,
+      review:
+        "This is very unusual for my business that currently requires a virtual private network that has high security.",
+    },
+
+    // Add more reviews here
+  ];
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 1024) {
+        setItemsPerView(3);
+      } else if (window.innerWidth >= 768) {
+        setItemsPerView(2);
+      } else {
+        setItemsPerView(1);
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+    handleResize();
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  const handleNext = () => {
+    if (currentIndex + itemsPerView < reviews.length) {
+      setSlideDirection("right");
+      setCurrentIndex(currentIndex + itemsPerView);
+    }
+  };
+
+  const handlePrev = () => {
+    if (currentIndex - itemsPerView >= 0) {
+      setSlideDirection("left");
+      setCurrentIndex(currentIndex - itemsPerView);
+    }
+  };
+
+  const displayReviews = reviews.slice(
+    currentIndex,
+    currentIndex + itemsPerView
+  );
 
   return (
     <main>
@@ -127,70 +246,75 @@ const Landing = () => {
         <p className="text-base text-center text-gray-500 mt-3">
           We are the preferred choice for many reasons.
         </p>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mt-24 gap-20 md:gap-10 lg:gap-10">
-          <div
-            onMouseEnter={() => setIsHovered(1)}
-            onMouseLeave={() => setIsHovered(0)}
-            className="text-center border-2 border-gray-200 hover:border-[#34B3F1] p-10 rounded-lg md:h-[370px] md:w-[350px] lg:h-[370px] lg:w-[400px] transition-colors duration-300 group"
-          >
-            <div className="w-full flex justify-center items-center">
-              <div className="p-4 border-2  border-gray-200 rounded-full bg-white transition-colors duration-300 group-hover:border-[#34B3F1] group-hover:text-[#34B3F1] mt-[-40%] md:mt-[-35%] lg:mt-[-30%]">
-                <Icon1 color={isHovered === 1 ? "#34B3F1" : "#4F5665"} />
-              </div>
-            </div>
-            <div className="flex flex-col justify-center items-center">
-              <h2 className="mt-10 text-3xl text-gray-700 group-hover:text-[#34B3F1] font-semibold">
-                Effortless Setup
-              </h2>
-              <p className="mt-3 text-xl text-gray-700">
-                Our intuitive platform enables instructors to set up their games
-                in a flash. Enjoy a hassle-free start with minimal effort.
-              </p>
-            </div>
-          </div>
-
-          <div
-            onMouseEnter={() => setIsHovered(2)}
-            onMouseLeave={() => setIsHovered(0)}
-            className="text-center border-2 border-gray-200 hover:border-[#34B3F1] p-10 rounded-lg md:h-[370px] md:w-[350px] lg:h-[370px] lg:w-[400px] transition-colors duration-300 group"
-          >
-            <div className="w-full flex justify-center items-center">
-              <div className="p-4 border-2  border-gray-200 rounded-full bg-white transition-colors duration-300 group-hover:border-[#34B3F1] group-hover:text-[#34B3F1] mt-[-40%] md:mt-[-35%] lg:mt-[-30%]">
-                <Icon2 color={isHovered === 2 ? "#34B3F1" : "#4F5665"} />
-              </div>
-            </div>
-            <div className="flex flex-col justify-center items-center">
-              <h2 className="mt-10 text-3xl text-gray-700 group-hover:text-[#34B3F1] font-semibold">
-                Effortless Setup
-              </h2>
-              <p className="mt-3 text-xl text-gray-700">
-                Our intuitive platform enables instructors to set up their games
-                in a flash. Enjoy a hassle-free start with minimal effort.
-              </p>
-            </div>
-          </div>
-
-          <div
-            onMouseEnter={() => setIsHovered(3)}
-            onMouseLeave={() => setIsHovered(0)}
-            className="text-center border-2 border-gray-200 hover:border-[#34B3F1] p-10 rounded-lg md:h-[370px] md:w-[350px] lg:h-[370px] lg:w-[400px] transition-colors duration-300 group"
-          >
-            <div className="w-full flex justify-center items-center">
-              <div className="p-4 border-2  border-gray-200 rounded-full bg-white transition-colors duration-300 group-hover:border-[#34B3F1] group-hover:text-[#34B3F1] mt-[-40%] md:mt-[-35%] lg:mt-[-30%]">
-                <Icon3 color={isHovered === 3 ? "#34B3F1" : "#4F5665"} />
-              </div>
-            </div>
-            <div className="flex flex-col justify-center items-center">
-              <h2 className="mt-10 text-3xl text-gray-700 group-hover:text-[#34B3F1] font-semibold">
-                Effortless Setup
-              </h2>
-              <p className="mt-3 text-xl text-gray-700">
-                Our intuitive platform enables instructors to set up their games
-                in a flash. Enjoy a hassle-free start with minimal effort.
-              </p>
-            </div>
+        <div className="flex items-center justify-center gap-20 md:gap-10 lg:gap-10  px-4">
+  <div className="w-full  mt-20 md:mt-10 lg:mt-20 flex justify-center items-center">
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-20 md:gap-10 lg:gap-10">
+      <div
+        onMouseEnter={() => setIsHovered(1)}
+        onMouseLeave={() => setIsHovered(0)}
+        className="text-center border-2 border-gray-200 hover:border-[#34B3F1] p-10 rounded-lg md:h-[370px] md:w-[350px] lg:h-[370px] lg:w-[400px] transition-colors duration-300 group"
+      >
+        <div className="w-full flex justify-center items-center">
+          <div className="p-4 border-2 border-gray-200 rounded-full bg-white transition-colors duration-300 group-hover:border-[#34B3F1] group-hover:text-[#34B3F1] mt-[-40%] md:mt-[-35%] lg:mt-[-30%]">
+            <Icon1 color={isHovered === 1 ? "#34B3F1" : "#4F5665"} />
           </div>
         </div>
+        <div className="flex flex-col justify-center items-center">
+          <h2 className="mt-10 text-3xl text-gray-700 group-hover:text-[#34B3F1] font-semibold">
+            Effortless Setup
+          </h2>
+          <p className="mt-3 text-xl text-gray-700">
+            Our intuitive platform enables instructors to set up their games
+            in a flash. Enjoy a hassle-free start with minimal effort.
+          </p>
+        </div>
+      </div>
+
+      <div
+        onMouseEnter={() => setIsHovered(2)}
+        onMouseLeave={() => setIsHovered(0)}
+        className="text-center border-2 border-gray-200 hover:border-[#34B3F1] p-10 rounded-lg md:h-[370px] md:w-[350px] lg:h-[370px] lg:w-[400px] transition-colors duration-300 group"
+      >
+        <div className="w-full flex justify-center items-center">
+          <div className="p-4 border-2 border-gray-200 rounded-full bg-white transition-colors duration-300 group-hover:border-[#34B3F1] group-hover:text-[#34B3F1] mt-[-40%] md:mt-[-35%] lg:mt-[-30%]">
+            <Icon2 color={isHovered === 2 ? "#34B3F1" : "#4F5665"} />
+          </div>
+        </div>
+        <div className="flex flex-col justify-center items-center">
+          <h2 className="mt-10 text-3xl text-gray-700 group-hover:text-[#34B3F1] font-semibold">
+            Effortless Setup
+          </h2>
+          <p className="mt-3 text-xl text-gray-700">
+            Our intuitive platform enables instructors to set up their games
+            in a flash. Enjoy a hassle-free start with minimal effort.
+          </p>
+        </div>
+      </div>
+
+      <div
+        onMouseEnter={() => setIsHovered(3)}
+        onMouseLeave={() => setIsHovered(0)}
+        className="text-center border-2 border-gray-200 hover:border-[#34B3F1] p-10 rounded-lg md:h-[370px] md:w-[350px] lg:h-[370px] lg:w-[400px] transition-colors duration-300 group"
+      >
+        <div className="w-full flex justify-center items-center">
+          <div className="p-4 border-2 border-gray-200 rounded-full bg-white transition-colors duration-300 group-hover:border-[#34B3F1] group-hover:text-[#34B3F1] mt-[-40%] md:mt-[-35%] lg:mt-[-30%]">
+            <Icon3 color={isHovered === 3 ? "#34B3F1" : "#4F5665"} />
+          </div>
+        </div>
+        <div className="flex flex-col justify-center items-center">
+          <h2 className="mt-10 text-3xl text-gray-700 group-hover:text-[#34B3F1] font-semibold">
+            Effortless Setup
+          </h2>
+          <p className="mt-3 text-xl text-gray-700">
+            Our intuitive platform enables instructors to set up their games
+            in a flash. Enjoy a hassle-free start with minimal effort.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
       </section>
 
       {/* BENIFITS */}
@@ -496,9 +620,9 @@ const Landing = () => {
 
       {/* REVIEW */}
       <section className="review my-20 px-5 md:px-8 lg:px-14">
-        <div className=" w-[90%] md:w-[60%] lg:w-[35%] mx-auto">
+        <div className="w-[90%] md:w-[60%] lg:w-[35%] mx-auto">
           <h1 className="text-4xl text-gray-800 font-semibold text-center">
-            Trusted by Thousands of Happy Customer
+            Trusted by Thousands of Happy Customers
           </h1>
           <p className="text-base text-center text-gray-500 mt-10">
             These are the stories of our customers who have joined us with great
@@ -506,96 +630,87 @@ const Landing = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mt-20 gap-5 md:gap-5 lg:gap-10">
-          <div className="border-2 border-[#34B3F1] p-5 rounded-lg">
-            <div className="flex items-center justify-between">
-              <div className="flex  items-center gap-2">
-                <img
-                  src={avatar1}
-                  className="h-14 w-14 mx-auto border-0 rounded-full bg-white"
-                  alt=""
-                />
-                <div>
-                  <h2 className="font-bold">Viezh Robert</h2>
-                  <p className="text-sm">Warsaw, Poland</p>
+        <div
+          className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mt-20 gap-5 md:gap-5 lg:gap-10 transition-all duration-500 ${
+            slideDirection === "left"
+              ? "slide-left"
+              : slideDirection === "right"
+              ? "slide-right"
+              : ""
+          }`}
+        >
+          {displayReviews.map((review, index) => (
+            <div
+              key={index}
+              className="border-2 hover:border-[#34B3F1] p-5 rounded-lg cursor-pointer"
+            >
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-2">
+                  <img
+                    src={review.avatar}
+                    className="h-14 w-14 mx-auto border-0 rounded-full bg-white"
+                    alt=""
+                  />
+                  <div>
+                    <h2 className="font-bold">{review.name}</h2>
+                    <p className="text-sm">{review.location}</p>
+                  </div>
+                </div>
+                <div className="flex gap-2">
+                  <p>{review.rating}</p>
+                  <img src={rating} className="" alt="" />
                 </div>
               </div>
-              <div className="flex gap-2">
-                <p>4.5</p>
-                <img src={rating} className="" alt="" />
+              <div className="flex flex-col justify-center items-center mt-5">
+                <p className="mt-3 text-base font-semibold">{review.review}</p>
               </div>
             </div>
-            <div className="flex flex-col justify-center items-center mt-5">
-              <p className="mt-3 text-base font-semibold">
-                “Wow... I am very happy to use this VPN, it turned out to be
-                more than my expectations and so far there have been no
-                problems. LaslesVPN always the best”.
-              </p>
-            </div>
-          </div>
-
-          <div className="border-2 border-gray-200 hover:border-[#34B3F1] p-5 rounded-lg transition-colors duration-300 group">
-            <div className="flex items-center justify-between">
-              <div className="flex items-center gap-2">
-                <img
-                  src={avatar2}
-                  className="h-14 w-14 mx-auto border-0 rounded-full bg-white"
-                  alt=""
-                />
-                <div>
-                  <h2 className="font-bold">Yessica Christy</h2>
-                  <p className="text-sm">Shanxi, China</p>
-                </div>
-              </div>
-              <div className="flex gap-2">
-                <p>4.5</p>
-                <img src={rating} className="" alt="" />
-              </div>
-            </div>
-            <div className="flex flex-col justify-center items-center mt-5">
-              <p className="mt-3 text-base font-semibold">
-                “I like it because I like to travel far and still can connect
-                with high speed.”..
-              </p>
-            </div>
-          </div>
-
-          <div className="border-2 border-gray-200 hover:border-[#34B3F1] p-5 rounded-lg transition-colors duration-300 group">
-            <div className="flex items-center justify-between">
-              <div className="flex  items-center gap-2">
-                <img
-                  src={avatar3}
-                  className="h-14 w-14 mx-auto border-0 rounded-full bg-white"
-                  alt=""
-                />
-                <div>
-                  <h2 className="font-bold">Kim Young Jou</h2>
-                  <p className="text-sm">Seoul, South Korea</p>
-                </div>
-              </div>
-              <div className="flex gap-2">
-                <p>4.5</p>
-                <img src={rating} className="" alt="" />
-              </div>
-            </div>
-            <div className="flex flex-col justify-center items-center mt-5">
-              <p className="mt-3 text-base font-semibold">
-                “This is very unusual for my business that currently requires a
-                virtual private network that has high security.”.
-              </p>
-            </div>
-          </div>
+          ))}
         </div>
 
-        <div className="flex items-center justify-between">
-          <img src={pagination} alt="" />
-          <div className="flex items-center">
-            <img src={left} className="border h-16 w-16" alt="" />
-            <img src={right} className="border h-28 w-28" alt="" />
+        <div className="flex items-center justify-between mt-10">
+          <div className="flex gap-2">
+            {Array.from({
+              length: Math.ceil(reviews.length / itemsPerView),
+            }).map((_, index) => (
+              <div
+                key={index}
+                className={`${
+                  currentIndex / itemsPerView === index ? "w-10" : "w-4"
+                } h-4 rounded-full ${
+                  currentIndex / itemsPerView === index
+                    ? "bg-[#16aefa]"
+                    : "bg-gray-300"
+                } transition-colors duration-300`}
+              />
+            ))}
+          </div>
+          <div className="flex items-center justify-center gap-4 mt-10">
+            <button
+              onClick={handlePrev}
+              disabled={currentIndex === 0}
+              className={`custom-button ${
+                currentIndex === 0
+                  ? "opacity-50 cursor-not-allowed"
+                  : "cursor-pointer"
+              }`}
+            >
+              <GoArrowLeft className="custom-icon" />
+            </button>
+            <button
+              onClick={handleNext}
+              disabled={currentIndex + itemsPerView >= reviews.length}
+              className={`custom-button ${
+                currentIndex + itemsPerView >= reviews.length
+                  ? "opacity-50 cursor-not-allowed"
+                  : "cursor-pointer"
+              }`}
+            >
+              <GoArrowRight className="custom-icon" />
+            </button>
           </div>
         </div>
       </section>
-
       {/* LAST SECTION */}
       <section className="my-10 px-5 md:px-10 lg:px-14">
         <div className="text-center">

@@ -6,7 +6,7 @@ const Navbar = ({ isExpanded }) => {
   const [value, setValue] = useState("English");
   return (
     <div
-      className={`fixed bg-white lg:w-[80%] md:w-[90%] w-[80%] lg:h-[10vh] md:h-[6vh] h-[12vh] b-2 z-20   transition-all duration-300 ease-in-out `}
+      className={`fixed bg-red-500 lg:w-[80%] md:w-[90%] w-[80%] lg:h-[10vh] md:h-[6vh] h-[12vh] b-2 z-20   transition-all duration-300 ease-in-out `}
     >
       <section className="w-full  pb-2 border-b-2 border-gray-200 h-full  flex justify-between items-center md:px-4 px-0  ">
         <div className="flex md:flex-row flex-col h-full md:justify-start justify-end items-center gap-x-4 md:w-[50%] w-[40%]">

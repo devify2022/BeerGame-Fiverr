@@ -26,7 +26,7 @@ function App() {
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/blogs" element={<Blogs />} />
         <Route path="/auth" element={<Auth />} />
-        <Route path="/game" element={<Game/>} />
+        <Route path="/animation" element={<Game/>} />
       </Routes>
       {!isDashboardPage && <Footer />} {/* Conditionally render Footer */}
     </div>

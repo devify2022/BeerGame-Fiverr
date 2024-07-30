@@ -10,12 +10,33 @@
 }
 
 .Game{
-    background-image: url('./assets/Game/game.png');
+    background-image: url('./assets/game/game.png');
+    background-repeat: no-repeat;
+    background-position: left;
+    background-size: contain;
 }
 
 .Boat{
-    background-image: url('./assets/Game/boat2.png');
+    background-image: url('./assets/game/boat2.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size:contain;
+    transform: scale(0.8);
 }
 .Boat2{
-    background-image: url('./assets/Game/boat1.png');
+    background-image: url('./assets/game/boat1.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size:contain;
+    transform: scale(0.8);
 }
+
+
+
+.rotate-reset {
+    transform:  rotate(-16deg) scale(0.8);
+  }
+  
+.rotate-init {
+    transform:  rotate(-16deg) scale(0.8);
+  }

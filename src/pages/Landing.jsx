@@ -29,12 +29,13 @@ import avatar1 from "../assets/landing/avatar1.png";
 import avatar2 from "../assets/landing/avatar2.png";
 import avatar3 from "../assets/landing/avatar3.png";
 import rating from "../assets/landing/rating.png";
-import pagination from "../assets/landing/pagination.png";
-import right from "../assets/landing/right.png";
-import left from "../assets/landing/left.png";
+// import pagination from "../assets/landing/pagination.png";
+// import right from "../assets/landing/right.png";
+// import left from "../assets/landing/left.png";
 import Icon1 from "../assets/landing/Icon1.jsx";
 import Icon2 from "../assets/landing/Icon2.jsx";
 import Icon3 from "../assets/landing/Icon3.jsx";
+import Slider from "../components/slider/Slider.jsx";
 
 const Landing = () => {
   const [isHovered, setIsHovered] = useState(0);
@@ -388,7 +389,7 @@ const Landing = () => {
           </h1>
         </div>
 
-        <div className="flex flex-col-reverse md:flex-col-reverse lg:flex-row justify-center h-[500px] border-black items-center lg:gap-10">
+        <div className="flex flex-col-reverse md:flex-col-reverse lg:flex-row justify-center lg:h-[500px] border-black items-center lg:gap-10">
           <div className="step2  h-[60%] relative mt-0 md:mt-16 lg:mt-0 p-8">
             <img
               src={stepBack}
@@ -506,94 +507,15 @@ const Landing = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mt-20 gap-5 md:gap-5 lg:gap-10">
-          <div className="border-2 border-[#34B3F1] p-5 rounded-lg">
-            <div className="flex items-center justify-between">
-              <div className="flex  items-center gap-2">
-                <img
-                  src={avatar1}
-                  className="h-14 w-14 mx-auto border-0 rounded-full bg-white"
-                  alt=""
-                />
-                <div>
-                  <h2 className="font-bold">Viezh Robert</h2>
-                  <p className="text-sm">Warsaw, Poland</p>
-                </div>
-              </div>
-              <div className="flex gap-2">
-                <p>4.5</p>
-                <img src={rating} className="" alt="" />
-              </div>
-            </div>
-            <div className="flex flex-col justify-center items-center mt-5">
-              <p className="mt-3 text-base font-semibold">
-                “Wow... I am very happy to use this VPN, it turned out to be
-                more than my expectations and so far there have been no
-                problems. LaslesVPN always the best”.
-              </p>
-            </div>
-          </div>
+        <Slider avatar1={avatar1} avatar2={avatar2} avatar3={avatar3} rating={rating} />
 
-          <div className="border-2 border-gray-200 hover:border-[#34B3F1] p-5 rounded-lg transition-colors duration-300 group">
-            <div className="flex items-center justify-between">
-              <div className="flex items-center gap-2">
-                <img
-                  src={avatar2}
-                  className="h-14 w-14 mx-auto border-0 rounded-full bg-white"
-                  alt=""
-                />
-                <div>
-                  <h2 className="font-bold">Yessica Christy</h2>
-                  <p className="text-sm">Shanxi, China</p>
-                </div>
-              </div>
-              <div className="flex gap-2">
-                <p>4.5</p>
-                <img src={rating} className="" alt="" />
-              </div>
-            </div>
-            <div className="flex flex-col justify-center items-center mt-5">
-              <p className="mt-3 text-base font-semibold">
-                “I like it because I like to travel far and still can connect
-                with high speed.”..
-              </p>
-            </div>
-          </div>
-
-          <div className="border-2 border-gray-200 hover:border-[#34B3F1] p-5 rounded-lg transition-colors duration-300 group">
-            <div className="flex items-center justify-between">
-              <div className="flex  items-center gap-2">
-                <img
-                  src={avatar3}
-                  className="h-14 w-14 mx-auto border-0 rounded-full bg-white"
-                  alt=""
-                />
-                <div>
-                  <h2 className="font-bold">Kim Young Jou</h2>
-                  <p className="text-sm">Seoul, South Korea</p>
-                </div>
-              </div>
-              <div className="flex gap-2">
-                <p>4.5</p>
-                <img src={rating} className="" alt="" />
-              </div>
-            </div>
-            <div className="flex flex-col justify-center items-center mt-5">
-              <p className="mt-3 text-base font-semibold">
-                “This is very unusual for my business that currently requires a
-                virtual private network that has high security.”.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <div className="flex items-center justify-between">
+        {/* <div className="flex items-center justify-between">
           <img src={pagination} alt="" />
           <div className="flex items-center">
             <img src={left} className="border h-16 w-16" alt="" />
             <img src={right} className="border h-28 w-28" alt="" />
           </div>
-        </div>
+        </div> */}
       </section>
 
       {/* LAST SECTION */}

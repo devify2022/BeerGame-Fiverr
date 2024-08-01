@@ -5,7 +5,7 @@ import week from "../../assets/game/weeks.svg"
 import Game from "./Game";
 import { useState } from "react";
 
-const GameScreen = () => {
+const GameScreen = ({name, setName, setShowModal1}) => {
 const [move1, setMove1] = useState(false)
 const [move2, setMove2] = useState(false)
 const [move3, setMove3] = useState(false)
@@ -45,6 +45,9 @@ const [move3, setMove3] = useState(false)
 
             <div className="px-2 md:px-5 my-0 md:my-0 lg:mt-4 w-[80%] border bg-[#D7F4FD]">
                 <Game 
+                name={name}
+                setName={setName}
+                setShowModal1={setShowModal1}
                 move1={move1}
                 setMove1={setMove1}
                 move2={move2}

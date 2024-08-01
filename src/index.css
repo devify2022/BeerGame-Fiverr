@@ -68,3 +68,15 @@
 .rotate-init {
     transform:  rotate(-16deg) scale(0.8);
   }
+
+  .rotate25 {
+    transform:  rotate(-25deg) scale(0.8);
+  }
+  
+  .rotate15 {
+    transform:  rotate(15deg) scale(0.8);
+  }
+
+  .rotate90 {
+    transform:  rotate(-90deg) scale(0.8);
+  }

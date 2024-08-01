@@ -29,16 +29,8 @@ const [move3, setMove3] = useState(false)
                     <img src={week} className="w-5" alt="" />
                     <p>Week 0</p>
                 </div>
-                <div className="flex gap-2">
                 <div className="flex items-center gap-2">
-                    <button onClick={()=>setMove1(true)}>move1</button>
-                </div>
-                <div className="flex items-center gap-2">
-                    <button onClick={()=>setMove2(true)}>move2</button>
-                </div>
-                <div className="flex items-center gap-2">
-                    <button onClick={()=>setMove3(true)}>move3</button>
-                </div>
+                    <button onClick={()=>setMove1(true)}>move</button>
                 </div>
                
             </div>

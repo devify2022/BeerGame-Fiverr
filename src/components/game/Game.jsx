@@ -17,6 +17,10 @@ const Game = ({
 }) => {
   const [reset, setReset] = useState(false);
 
+const Game = ({ move1, setMove1}) => {
+
+  const [reset, setReset] = useState(false)
+  
   const boat1_1 = useRef();
   const boat1_2 = useRef();
   const boat1_3 = useRef();

@@ -1,4 +1,4 @@
-import tv from "../../../assets/game/tv.png";
+import tv from "../../../assets/Game/tv.png";
 
 const Step4 = ({ setCurrentStep, onClose }) => {
   return (
@@ -9,12 +9,12 @@ const Step4 = ({ setCurrentStep, onClose }) => {
       className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50"
     >
       <div className="relative p-4 w-full max-w-2xl max-h-full">
-        <div className="relative bg-white rounded-lg shadow dark:bg-gray-700">
+        <div className="relative bg-white rounded-lg shadow ">
           <div className="p-4 md:p-5">
-            <h3 className="text-xl font-bold text-gray-900 dark:text-white">
+            <h3 className="text-xl font-bold text-gray-900 ">
               Go to the next cycle
             </h3>
-            <p className="text-sm text-gray-500 dark:text-gray-400 mt-2 w-[80%]">
+            <p className="text-sm text-gray-500 mt-2 w-[80%]">
               Once the connected players order the game goes to next cycle
               automatically
             </p>
@@ -32,7 +32,7 @@ const Step4 = ({ setCurrentStep, onClose }) => {
                   <img src={tv} alt="" />
                 </div>
                 <div className="flex items-center gap-2">
-                  <h2>Retailer : Computerr</h2>
+                  <h2>Retailer : Computer</h2>
                   <img src={tv} alt="" />
                 </div>
               </div>

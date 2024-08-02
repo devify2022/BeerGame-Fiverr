@@ -1,9 +1,9 @@
 import React from "react";
-import reset from "../../assets/game/reset.svg";
-import amimation from "../../assets/game/animation.svg";
-import statistics from "../../assets/game/statistics.svg";
-import fast from "../../assets/game/fast.svg";
-import instructions from "../../assets/game/instructions.svg";
+import reset from "../../assets/Game/reset.svg";
+import amimation from "../../assets/Game/animation.svg";
+import statistics from "../../assets/Game/statistics.svg";
+import fast from "../../assets/Game/fast.svg";
+import instructions from "../../assets/Game/instructions.svg";
 
 const GameSideTab = ({
   selectedTab,

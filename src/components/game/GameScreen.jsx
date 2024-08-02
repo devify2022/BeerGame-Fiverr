@@ -1,7 +1,7 @@
-import stocks from "../../assets/game/participants.svg"
-import participants from "../../assets/game/participants.svg"
-import orders from "../../assets/game/orders.svg"
-import week from "../../assets/game/weeks.svg"
+import stocks from "../../assets/Game/participants.svg"
+import participants from "../../assets/Game/participants.svg"
+import orders from "../../assets/Game/orders.svg"
+import week from "../../assets/Game/weeks.svg"
 import Game from "./Game";
 import { useState } from "react";
 

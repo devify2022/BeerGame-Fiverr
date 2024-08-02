@@ -1,4 +1,4 @@
-import manufacturer2 from "../../../assets/game/manufacturer2.png";
+import manufacturer2 from "../../../assets/Game/manufacturer2.png";
 
 const Step3 = ({ setCurrentStep}) => {
   return (
@@ -9,12 +9,12 @@ const Step3 = ({ setCurrentStep}) => {
       className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50"
     >
       <div className="relative p-4 w-full max-w-2xl max-h-full">
-        <div className="relative bg-white rounded-lg shadow dark:bg-gray-700">
+        <div className="relative bg-white rounded-lg shadow ">
           <div className="p-4 md:p-5">
-            <h3 className="text-xl font-bold text-gray-900 dark:text-white">
+            <h3 className="text-xl font-bold text-gray-900 ">
               Send an order
             </h3>
-            <p className="text-sm text-gray-500 dark:text-gray-400 mt-2 w-[80%]">
+            <p className="text-sm text-gray-500  mt-2 w-[80%]">
               Each week you need to decide{" "}
               <span className="text-[#F53838]">quantity</span> to order for{" "}
               <span className="text-[#F53838]">production</span>

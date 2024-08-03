@@ -48,8 +48,9 @@ const Game = ({ move1, setMove1 }) => {
 
   gsap.registerPlugin(MotionPathPlugin);
 
+  
   const moveBoat = contextSafe(() => {
-    const tl = gsap.timeline({
+    const masterTimeline = gsap.timeline({
       onComplete: () => {
         gsap.delayedCall(1, () => {
           gsap.set(boat1_1.current, { clearProps: "all" });
@@ -62,67 +63,47 @@ const Game = ({ move1, setMove1 }) => {
         });
       },
     });
-
-    // Define the motion path
+  
+    // Define the motion paths
     const path1 = [
       { x: 0, y: -10 },
       { x: 5, y: -20 },
       { x: 20, y: -35 },
       { x: 50, y: -50 },
     ];
-
     const path2 = [{ x: 150, y: -85 }];
-
     const path3 = [
       { x: 150, y: -2 },
       { x: 175, y: -5 },
       { x: 200, y: -10 },
       { x: 350, y: -30 },
     ];
-
-    const path4 = [
-      { x: -2, y: 10 },
-      { x: -70, y: 80 },
-    ];
-
     const path5 = [{ x: -70, y: 80 }];
     const path6 = [
       { x: 0, y: 10 },
       { x: 5, y: 150 },
     ];
-
-    const path7 = [
-      { x: 0, y: 0 },
-      { x: -10, y: 5 },
-      { x: -20, y: 10 },
-      { x: -120, y: 5 },
-    ];
-
     const path8 = [
       { x: 0, y: 0 },
       { x: -10, y: 5 },
       { x: -20, y: 10 },
       { x: -120, y: 5 },
     ];
-
     const path9 = [
       { x: -120, y: 5 },
       { x: -140, y: 7 },
       { x: -150, y: 10 },
       { x: -200, y: 15 },
     ];
-
     const path10 = [
       { x: -120, y: 0 },
       { x: -140, y: 2 },
       { x: -150, y: 4 },
     ];
-
     const path11 = [
       { x: -180, y: 5 },
       { x: -200, y: 5 },
     ];
-
     const path12 = [
       { x: 0, y: -10 },
       { x: 5, y: -20 },
@@ -130,128 +111,115 @@ const Game = ({ move1, setMove1 }) => {
       { x: 20, y: -60 },
       { x: 40, y: -90 },
     ];
-
-    tl.to(boat1_1.current, {
-      duration: 3,
+  
+    // Define individual timelines for each boat
+    const timeline1 = gsap.timeline();
+    timeline1.to(boat1_1.current, {
+      duration: 2,
       rotate: -80,
       ease: "power1.inOut",
     })
-      .to(boat1_1.current, {
-        duration: 3,
-        motionPath: {
-          path: path1,
-          curviness: 1,
-        },
-        rotate: -30,
-        ease: "power1.inOut",
-      })
-      .to(boat1_1.current, {
-        duration: 3,
-        motionPath: {
-          path: path2,
-          curviness: 1,
-        },
-        rotate: -20,
-
-        ease: "power1.inOut",
-      })
-      .to(boat1_1.current, {
-        duration: 1,
-        opacity: 0,
-        ease: "power1.inOut",
-      });
-
-    tl.to(boat1_2.current, {
-      duration: 5, // Total duration for the combined path
-      motionPath: {
-        path: path3,
-        curviness: 1,
-      },
+    .to(boat1_1.current, {
+      duration: 2,
+      motionPath: { path: path1, curviness: 1 },
+      rotate: -30,
       ease: "power1.inOut",
-    }).to(boat1_2.current, {
-      duration: 3, // Duration for fading out at the end
+    })
+    .to(boat1_1.current, {
+      duration: 1,
+      motionPath: { path: path2, curviness: 1 },
+      rotate: -20,
+      ease: "power1.inOut",
+    })
+    .to(boat1_1.current, {
+      duration: 1,
       opacity: 0,
-      onComplete: () => {
-        setReset(true);
-      },
       ease: "power1.inOut",
     });
-
-    tl.to(boat1_3.current, {
+  
+    const timeline2 = gsap.timeline();
+    timeline2.to(boat1_2.current, {
+      duration: 5,
+      motionPath: { path: path3, curviness: 1 },
+      ease: "power1.inOut",
+    })
+    .to(boat1_2.current, {
       duration: 3,
-      motionPath: {
-        path: path5,
-        curviness: 1,
-      },
+      opacity: 0,
+      onComplete: () => { setReset(true); },
+      ease: "power1.inOut",
+    });
+  
+    const timeline3 = gsap.timeline();
+    timeline3.to(boat1_3.current, {
+      duration: 3,
+      motionPath: { path: path5, curviness: 1 },
       rotate: -40,
       ease: "power1.inOut",
-    }).to(boat1_3.current, {
+    })
+    .to(boat1_3.current, {
       duration: 1,
       opacity: 0,
       ease: "power1.inOut",
     });
-
-    tl.to(boat1_4.current, {
+  
+    const timeline4 = gsap.timeline();
+    timeline4.to(boat1_4.current, {
       duration: 3,
-      motionPath: {
-        path: path6,
-        curviness: 1,
-      },
+      motionPath: { path: path6, curviness: 1 },
       ease: "power1.inOut",
-    }).to(boat1_4.current, {
+    })
+    .to(boat1_4.current, {
       duration: 1,
       opacity: 0,
       ease: "power1.inOut",
     });
-
-    tl.to(boat1_5.current, {
+  
+    const timeline5 = gsap.timeline();
+    timeline5.to(boat1_5.current, {
       duration: 3,
-      motionPath: {
-        path: path8,
-        curviness: 1,
-      },
+      motionPath: { path: path8, curviness: 1 },
       ease: "power1.inOut",
-    }).to(boat1_5.current, {
+    })
+    .to(boat1_5.current, {
       duration: 3,
-      motionPath: {
-        path: path9,
-        curviness: 1,
-      },
+      motionPath: { path: path9, curviness: 1 },
       opacity: 0,
       ease: "power1.inOut",
     });
-
-    tl.to(boat1_6.current, {
+  
+    const timeline6 = gsap.timeline();
+    timeline6.to(boat1_6.current, {
       duration: 3,
-      motionPath: {
-        path: path10,
-        curviness: 1,
-      },
+      motionPath: { path: path10, curviness: 1 },
       ease: "linear",
-    }).to(boat1_6.current, {
+    })
+    .to(boat1_6.current, {
       duration: 3,
-      motionPath: {
-        path: path11,
-        curviness: 1,
-      },
+      motionPath: { path: path11, curviness: 1 },
       opacity: 0,
       ease: "power1.inOut",
     });
-
-    tl.to(boat1_7.current, {
+  
+    const timeline7 = gsap.timeline();
+    timeline7.to(boat1_7.current, {
       duration: 3,
-      motionPath: {
-        path: path12,
-        curviness: 1,
-      },
+      motionPath: { path: path12, curviness: 1 },
       rotate: -80,
       ease: "power1.inOut",
-      onComplete: () => {
-        setMove1(false);
-      },
+      onComplete: () => { setMove1(false); },
     });
-  });
+  
 
+    masterTimeline.add(timeline1, 1);
+    masterTimeline.add(timeline2, 1);
+    masterTimeline.add(timeline3, 1);
+    masterTimeline.add(timeline4, 1);
+    masterTimeline.add(timeline5, 1);
+    masterTimeline.add(timeline6, 1);
+    masterTimeline.add(timeline7, 1);
+  });
+  
   useEffect(() => {
     if (move1) {
       moveBoat();
@@ -278,7 +246,7 @@ const Game = ({ move1, setMove1 }) => {
             <p className="text-[1.2rem] font-bold">2</p>
           </div>
           <div
-            className="Boat2 w-20 h-[4.6rem] absolute top-[15%] right-[10%]"
+            className="Boat2 w-20 h-[4.6rem] absolute top-[10%] right-[10%]"
             ref={boat1_3}
           >
             <p className="text-[1.2rem] font-bold">3</p>
@@ -290,13 +258,13 @@ const Game = ({ move1, setMove1 }) => {
             <p className="text-[1.2rem] font-bold">4</p>
           </div>
           <div
-            className="Boat2 w-20 h-[4.6rem] absolute bottom-[5%] right-[25%]"
+            className="Boat2 w-20 h-[4.6rem] absolute bottom-[2%] right-[25%]"
             ref={boat1_5}
           >
             <p className="text-[1.2rem] font-bold">5</p>
           </div>
           <div
-            className="Boat2 w-20 h-[4.6rem] absolute bottom-[1%] left-[35%] rotate15"
+            className="Boat2 w-20 h-[4.6rem] absolute bottom-[-5%] left-[35%] rotate15"
             ref={boat1_6}
           >
             <p className="text-[1.2rem] font-bold">6</p>
@@ -349,7 +317,7 @@ const Game = ({ move1, setMove1 }) => {
                         Order
                       </button>
                     </div>
-                        
+                  
                   </form>
                   <h2>
                     Cost: <span className="font-bold text-red-500">$12</span>
@@ -412,7 +380,7 @@ const Game = ({ move1, setMove1 }) => {
                         Order
                       </button>
                     </div>
-                        
+                 
                   </form>
                   <h2>
                     Cost: <span className="font-bold text-red-500">$20</span>
@@ -482,7 +450,7 @@ const Game = ({ move1, setMove1 }) => {
                         Order
                       </button>
                     </div>
-                        
+          
                   </form>
                   <h2>
                     Cost: <span className="font-bold text-red-500">$12</span>
@@ -552,7 +520,7 @@ const Game = ({ move1, setMove1 }) => {
                         Order
                       </button>
                     </div>
-                        
+               
                   </form>
                   <h2>
                     Cost: <span className="font-bold text-red-500">$12</span>

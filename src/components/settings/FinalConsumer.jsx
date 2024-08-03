@@ -16,7 +16,7 @@ const FinalConsumer = () => {
         <h1 className="text-xl font-bold">Final Consumer Demand</h1>
       </div>
 
-      <div className="flex flex-col items-center justify-between gap-5">
+      <div className="flex flex-col lg:flex-row items-center justify-between gap-5">
         <div className=" md:w-[80%] lg:w-[50%] p-5">
           <div className="flex items-center justify-between border-b p-">
             <h2

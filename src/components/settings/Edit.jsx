@@ -1,6 +1,7 @@
 import { MdEdit, MdGroup } from "react-icons/md";
 import homes from "../../assets/Game/homes.png";
 import { Link } from "react-router-dom";
+import FinalConsumer from "./FinalConsumer";
 
 const Edit = () => {
   return (
@@ -23,23 +24,38 @@ const Edit = () => {
 
       <div className="flex items-center justify-center gap-3 mt-5">
         <div className="">
-            <h2><span className="font-semibold">For all roles:</span> Stock: <span className="font-semibold">8</span>,</h2>
+          <h2>
+            <span className="font-semibold">For all roles:</span> Stock:{" "}
+            <span className="font-semibold">8</span>,
+          </h2>
         </div>
         <div className="">
-            <h2><span className="font-semibold">Initial Orders:</span> Stock: <span className="font-semibold">4</span>,</h2>
+          <h2>
+            <span className="font-semibold">Initial Orders:</span> Stock:{" "}
+            <span className="font-semibold">4</span>,
+          </h2>
         </div>
         <div className="">
-            <h2><span className="font-semibold">Lead Time:</span> Stock: <span className="font-semibold">2 weeks</span>,</h2>
+          <h2>
+            <span className="font-semibold">Lead Time:</span> Stock:{" "}
+            <span className="font-semibold">2 weeks</span>,
+          </h2>
         </div>
         <div className="">
-            <h2><span className="font-semibold">Stock Cost:</span> Stock: <span className="font-semibold text-blue-500">0.5 $</span>,</h2>
+          <h2>
+            <span className="font-semibold">Stock Cost:</span> Stock:{" "}
+            <span className="font-semibold text-blue-500">0.5 $</span>,
+          </h2>
         </div>
         <div className="">
-            <h2><span className="font-semibold">Backorder Cost:</span> Stock: <span className="font-semibold text-red-600">1 $</span>,</h2>
+          <h2>
+            <span className="font-semibold">Backorder Cost:</span> Stock:{" "}
+            <span className="font-semibold text-red-600">1 $</span>,
+          </h2>
         </div>
       </div>
 
-      
+      <FinalConsumer />
     </div>
   );
 };

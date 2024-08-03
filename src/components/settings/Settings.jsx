@@ -16,8 +16,8 @@ const Settings = () => {
           <SlGraph className="text-xl text-pink-600" />
         </div>
       </div>
-      <div className="flex flex-col lg:flex-row items-center justify-between mt-5">
-        <div>
+      <div className="flex flex-col md:flex-row lg:flex-row items-center gap-10 justify-between mt-5">
+        <div className="">
           <h1 className="text-lg font-bold">Number of tearms</h1>
           <p>Each team can accommodate up to 4 players</p>
           <div className="flex items-center">
@@ -38,7 +38,7 @@ const Settings = () => {
             </div>
           </div>
         </div>
-        <div className="w-full mt-2 lg:mt-0 lg:w-[50%]">
+        <div className="w-full mt-2 lg:mt-0 md:w-[50%] lg:w-[50%]">
           <h1 className="font-bold text-lg">Session name</h1>
           <select
             name=""
@@ -50,7 +50,7 @@ const Settings = () => {
         </div>
       </div>
 
-      <div className="flex flex-col lg:flex-row items-center justify-between mt-5">
+      <div className="flex flex-col md:flex-row lg:flex-row items-center justify-between mt-5">
         <div className="lg:w-[50%]">
           <h1 className="font-bold text-lg">Game instructions format ?</h1>
           <select

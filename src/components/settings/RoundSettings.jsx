@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 const RoundSettings = () => {
   return (
-    <div>
+    <div className="">
       <h1 className="font-bold text-xl mt-10">Roundes settings:</h1>
 
       <div className="flex flex-col lg:flex-row justify-center items-center gap-5 mt-10">

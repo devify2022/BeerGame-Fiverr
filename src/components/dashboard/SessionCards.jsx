@@ -6,6 +6,7 @@ import edit from "../../assets/dashboard/edit.svg";
 import { MdOutlineArchive } from "react-icons/md";
 import { IoDuplicateOutline } from "react-icons/io5";
 import { RiDeleteBinFill } from "react-icons/ri";
+import { Link } from "react-router-dom";
 
 const SessionCards = () => {
   const [popup, setPopup] = useState({
@@ -78,7 +79,8 @@ const SessionCards = () => {
   return (
     <div className="mt-8 w-full flex-1 overflow-auto px-4">
       {clients.map((client, index) => (
-        <section
+        <Link
+        to='/session'
           key={index}
           className="h-[10rem] flex flex-col mb-6 justify-start items-start rounded-xl border-2 border-gray-300"
         >
@@ -141,7 +143,7 @@ const SessionCards = () => {
             <p>Players: 1/4</p>
             <p>Rounds: 2</p>
           </div>
-        </section>
+        </Link>
       ))}
 
       {popup.visible && (

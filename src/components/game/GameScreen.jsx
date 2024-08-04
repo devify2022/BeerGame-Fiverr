@@ -35,7 +35,7 @@ const [move3, setMove3] = useState(false)
                
             </div>
 
-            <div className="my-0 md:my-0 lg:mt-4 w-[100%] lg:h-[75vh] md:h-[90vh] h-[86vh] flex items-center pt-10 bg-[#DDF6FF] border-2 border-green-500">
+            <div className="my-0 md:my-0 lg:mt-4 w-[100%] lg:h-[75vh] md:h-[90vh] h-[86vh] flex items-center pt-10 bg-[#DDF6FF] border-2 ">
                 <Game 
                 name={name}
                 setName={setName}

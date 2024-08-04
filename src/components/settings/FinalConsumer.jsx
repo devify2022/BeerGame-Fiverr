@@ -2,12 +2,96 @@ import { useState } from "react";
 import { BsFileBarGraph } from "react-icons/bs";
 import { FiPlus } from "react-icons/fi";
 import { IoMdRefresh } from "react-icons/io";
+import { Line } from "react-chartjs-2";
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+  Tooltip,
+  Legend,
+} from "chart.js";
+
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+  Tooltip,
+  Legend
+);
 
 const FinalConsumer = () => {
   const [showDiv, setShowDiv] = useState(0);
+  const [manualUpdate, setManualUpdate] = useState([4,8,8,8,8]); // Default values
+  const [inputValue, setInputValue] = useState('4,8,8,8,8');
+  const [manualEntryError, setManualEntryError] = useState("")
 
-  const numbers1 = [1, 11, 3, 4];
+  const numbers1 = manualUpdate; // Use manualUpdate for the chart data
   const numbers2 = [12, 12, 11, 0];
+
+  const labels = Array.from({ length: 12 }, (_, i) => (i + 1).toString()); // Labels from 1 to 12
+
+  const data = {
+    labels: labels,
+    datasets: [
+      {
+        label: "Consumer Demand",
+        data: numbers1,
+        fill: false,
+        borderColor: "rgb(75, 192, 192)",
+        tension: 0.1,
+      },
+    ],
+  };
+
+  const options = {
+    responsive: true,
+    plugins: {
+      legend: {
+        position: "top",
+      },
+      tooltip: {
+        callbacks: {
+          label: function (tooltipItem) {
+            return `Demand: ${tooltipItem.raw}`;
+          },
+        },
+      },
+    },
+    scales: {
+      x: {
+        beginAtZero: true,
+      },
+      y: {
+        beginAtZero: true,
+      },
+    },
+  };
+  const handleTextareaChange = (event) => {
+    const value = event.target.value;
+    setInputValue(value); // Update the state with the new input value
+  
+    // Convert input value to an array of numbers
+    const valuesArray = value.split(',')
+      .filter(val => val.trim() !== '') // Remove empty values
+      .map(val => parseFloat(val.trim()))
+      .filter(val => !isNaN(val)); // Remove NaN values
+  
+    // Check if the array length is greater than 12 or empty
+    if (valuesArray.length === 0) {
+      setManualEntryErrorr('Error: The input is empty.');
+    } else if (valuesArray.length > 12) {
+      setManualEntryError('Error: The array length exceeds the maximum limit of 12.');
+    } else {
+      // No errors, update the state with valid data
+      setManualUpdate(valuesArray);
+    }
+  };
+  
 
   return (
     <div>
@@ -16,9 +100,9 @@ const FinalConsumer = () => {
         <h1 className="text-xl font-bold">Final Consumer Demand</h1>
       </div>
 
-      <div className="flex flex-col items-center justify-between gap-5">
-        <div className=" md:w-[80%] lg:w-[50%] p-5">
-          <div className="flex items-center justify-between border-b p-">
+      <div className="flex lg:flex-row flex-col items-center justify-between gap-5">
+        <div className="md:w-[80%] lg:w-[50%] p-5">
+          <div className="flex items-center justify-between border-b ">
             <h2
               onClick={() => setShowDiv(0)}
               className={`text-lg font-bold ${
@@ -41,17 +125,16 @@ const FinalConsumer = () => {
             <div>
               <h2 className="mt-2">
                 Modify the values below or simply copy/paste a list of cells
-                from an Exel spreadsheet:
+                from an Excel spreadsheet:
               </h2>
 
               <textarea
-                name=""
-                id=""
-                placeholder=" 4,8,8,8,8,8,8,8,"
+                placeholder="4, 8, 8, 8, 8"
                 className="w-full h-40 border mt-5 p-2"
-              >
-                4,8,8,8,8,8,8,8,
-              </textarea>
+                value={inputValue} // Join the array to display in textarea
+                onChange={handleTextareaChange}
+              />
+            <p className="text-red-500">{setManualEntryError}</p>
             </div>
           )}
 
@@ -90,14 +173,10 @@ const FinalConsumer = () => {
               </div>
 
               <div className="flex justify-center items-center gap-5">
-                <button
-                  className="flex items-center gap-2 bg-yellow-400 px-4 py-2"
-                >
+                <button className="flex items-center gap-2 bg-yellow-400 px-4 py-2">
                   <IoMdRefresh /> Refresh
                 </button>
-                <button
-                  className="flex items-center gap-2 bg-[#2DC4B6] text-white px-4 py-2"
-                >
+                <button className="flex items-center gap-2 bg-[#2DC4B6] text-white px-4 py-2">
                   <FiPlus /> Add Segment
                 </button>
               </div>
@@ -106,7 +185,9 @@ const FinalConsumer = () => {
         </div>
 
         {/* Graph */}
-        <div className="border-2 w-[50%]"></div>
+        <div className="border-2 w-[50%] h-full border-red-500">
+          <Line data={data} options={options} />
+        </div>
       </div>
     </div>
   );

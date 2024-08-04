@@ -48,8 +48,6 @@ const Game = ({ move1, setMove1 }) => {
   const { contextSafe } = useGSAP();
 
   gsap.registerPlugin(MotionPathPlugin);
-
-
   const moveBoat = contextSafe(() => {
     const masterTimeline = gsap.timeline({
       onComplete: () => {

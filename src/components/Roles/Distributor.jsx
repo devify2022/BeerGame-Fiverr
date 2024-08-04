@@ -28,7 +28,7 @@ const Distributor = () => {
           fontWeight: 700,
           fontSize: "0.8vw",
         }}
-        hoardingProps={{ top: "2vw", right: "35vw", position: "absolute" }}
+        hoardingProps={{ top: "2vw", right: "35vw", position: "absolute", zIndex:"99" }}
         role="Distributor"
       />
     </div>

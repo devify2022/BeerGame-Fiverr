@@ -10,6 +10,7 @@ import Landing from "./pages/Landing";
 import GameSimulation from "./pages/GameSimulation";
 import SettingPage from "./pages/SettingPage";
 import EditPage from "./pages/EditPage";
+import SessionPage from "./pages/SessionPage";
 
 function App() {
   const location = useLocation();
@@ -17,22 +18,24 @@ function App() {
   const isGamePage = location.pathname === "/game";
   const isSettingPage = location.pathname === "/settings";
   const isEdit = location.pathname === "/edit";
+  const isSession = location.pathname === "/session";
 
   return (
     <div className="App">
-      {!isDashboardPage && !isGamePage && !isSettingPage && !isEdit && <Navbar />}
+      {!isDashboardPage && !isGamePage && !isSettingPage && !isEdit && !isSession &&  <Navbar />}
       <Routes>
         <Route path="/" element={<Landing />} />
         <Route path="/about" element={<About />} />
         <Route path="/help" element={<Help />} />
         <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/game" element={<GameSimulation />} />
         <Route path="/blogs" element={<Blogs />} />
         <Route path="/auth" element={<Auth />} />
+        <Route path="/game" element={<GameSimulation />} />
         <Route path="/settings" element={<SettingPage />} />
         <Route path="/edit" element={<EditPage />} />
+        <Route path="/session" element={<SessionPage/>} />
       </Routes>
-      {!isDashboardPage && !isGamePage && !isSettingPage && !isEdit && <Footer />}
+      {!isDashboardPage && !isGamePage && !isSettingPage && !isEdit && !isSession && <Footer />}
     </div>
   );
 }

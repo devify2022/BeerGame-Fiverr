@@ -6,14 +6,14 @@ import { LuRefreshCcw } from "react-icons/lu";
 import { MdComputer, MdOutlineEdit } from "react-icons/md";
 import Map from "../GameMap/GameMap";
 
-const Game = ({ move1, setMove1 }) => {
+const Game = ({ move1, setMove1, handleToggleModal }) => {
   const [reset, setReset] = useState(false);
 
   const [name, setName] = useState("");
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [value, setValue] = useState(0);
 
-  const [modalName, setModalName] = useState("Manufacturers");
+  const [modalName, setModalName] = useState("Wholesalers");
 
   const handleEdit = () => {
     setIsModalOpen(true);
@@ -113,13 +113,14 @@ const Game = ({ move1, setMove1 }) => {
 
     // Define individual timelines for each boat
     const timeline1 = gsap.timeline();
-    timeline1.to(boat1_1.current, {
-      duration: 2,
-      rotate: -80,
-      ease: "power1.inOut",
-    })
+    timeline1
       .to(boat1_1.current, {
-        duration: 2,
+        duration: 1,
+        rotate: -80,
+        ease: "power1.inOut",
+      })
+      .to(boat1_1.current, {
+        duration: 1,
         motionPath: { path: path1, curviness: 1 },
         rotate: -30,
         ease: "power1.inOut",
@@ -137,25 +138,29 @@ const Game = ({ move1, setMove1 }) => {
       });
 
     const timeline2 = gsap.timeline();
-    timeline2.to(boat1_2.current, {
-      duration: 5,
-      motionPath: { path: path3, curviness: 1 },
-      ease: "power1.inOut",
-    })
+    timeline2
       .to(boat1_2.current, {
         duration: 3,
+        motionPath: { path: path3, curviness: 1 },
+        ease: "power1.inOut",
+      })
+      .to(boat1_2.current, {
+        duration: 1,
         opacity: 0,
-        onComplete: () => { setReset(true); },
+        onComplete: () => {
+          setReset(true);
+        },
         ease: "power1.inOut",
       });
 
     const timeline3 = gsap.timeline();
-    timeline3.to(boat1_3.current, {
-      duration: 3,
-      motionPath: { path: path5, curviness: 1 },
-      rotate: -40,
-      ease: "power1.inOut",
-    })
+    timeline3
+      .to(boat1_3.current, {
+        duration: 3,
+        motionPath: { path: path5, curviness: 1 },
+        rotate: -40,
+        ease: "power1.inOut",
+      })
       .to(boat1_3.current, {
         duration: 1,
         opacity: 0,
@@ -163,11 +168,12 @@ const Game = ({ move1, setMove1 }) => {
       });
 
     const timeline4 = gsap.timeline();
-    timeline4.to(boat1_4.current, {
-      duration: 3,
-      motionPath: { path: path6, curviness: 1 },
-      ease: "power1.inOut",
-    })
+    timeline4
+      .to(boat1_4.current, {
+        duration: 3,
+        motionPath: { path: path6, curviness: 1 },
+        ease: "power1.inOut",
+      })
       .to(boat1_4.current, {
         duration: 1,
         opacity: 0,
@@ -175,26 +181,28 @@ const Game = ({ move1, setMove1 }) => {
       });
 
     const timeline5 = gsap.timeline();
-    timeline5.to(boat1_5.current, {
-      duration: 3,
-      motionPath: { path: path8, curviness: 1 },
-      ease: "power1.inOut",
-    })
+    timeline5
       .to(boat1_5.current, {
         duration: 3,
+        motionPath: { path: path8, curviness: 1 },
+        ease: "power1.inOut",
+      })
+      .to(boat1_5.current, {
+        duration: 1,
         motionPath: { path: path9, curviness: 1 },
         opacity: 0,
         ease: "power1.inOut",
       });
 
     const timeline6 = gsap.timeline();
-    timeline6.to(boat1_6.current, {
-      duration: 3,
-      motionPath: { path: path10, curviness: 1 },
-      ease: "linear",
-    })
+    timeline6
       .to(boat1_6.current, {
         duration: 3,
+        motionPath: { path: path10, curviness: 1 },
+        ease: "linear",
+      })
+      .to(boat1_6.current, {
+        duration: 1,
         motionPath: { path: path11, curviness: 1 },
         opacity: 0,
         ease: "power1.inOut",
@@ -202,13 +210,18 @@ const Game = ({ move1, setMove1 }) => {
 
     const timeline7 = gsap.timeline();
     timeline7.to(boat1_7.current, {
-      duration: 3,
+      duration: 4,
       motionPath: { path: path12, curviness: 1 },
       rotate: -80,
+      opacity: 0,
       ease: "power1.inOut",
-      onComplete: () => { setMove1(false); },
+      onComplete: () => {
+        setMove1(false),
+          setTimeout(() => {
+            handleToggleModal();
+          }, 1000);
+      },
     });
-
 
     masterTimeline.add(timeline1, 1);
     masterTimeline.add(timeline2, 1);
@@ -227,48 +240,49 @@ const Game = ({ move1, setMove1 }) => {
 
   console.log(reset);
   return (
-    <div className="w-full" >
+    <div className="w-full flex justify-center items-center">
       <Map />
       <div className=" w-full h-[75vh] relative">
         <div
-          className="Boat w-20 h-[4.6rem] absolute  top-[4vw] left-[1vw]"
+          className="Boat w-20 h-[4.6rem] absolute  top-[5vw] left-[10vw]"
           ref={boat1_1}
         >
           <p className="text-[1.2rem] font-bold">1</p>
         </div>
         <div
-          className={`Boat w-20 h-[4.6rem] absolute top-[0vw] left-[20vw] ${reset ? "rotate-reset" : "rotate-init"
-            }`}
+          className={`Boat w-20 h-[4.6rem] absolute top-[0vw] left-[26vw] ${
+            reset ? "rotate-reset" : "rotate-init"
+          }`}
           ref={boat1_2}
         >
           <p className="text-[1.2rem] font-bold">2</p>
         </div>
         <div
-          className="Boat2 w-20 h-[4.6rem] absolute top-[3vw] right-[30vw] "
+          className="Boat2 w-20 h-[4.6rem] absolute top-[6vw] right-[19vw] "
           ref={boat1_3}
         >
           <p className="text-[1.2rem] font-bold">3</p>
         </div>
         <div
-          className="Boat2 w-20 h-[4.6rem] absolute top-[12vw] right-[32vw] rotate25"
+          className="Boat2 w-20 h-[4.6rem] absolute top-[16vw] right-[20vw] rotate25"
           ref={boat1_4}
         >
           <p className="text-[1.2rem] font-bold">4</p>
         </div>
         <div
-          className="Boat2 w-20 h-[4.6rem] absolute bottom-[4vw] right-[32vw]"
+          className="Boat2 w-20 h-[4.6rem] absolute bottom-[3vw] right-[22vw]"
           ref={boat1_5}
         >
           <p className="text-[1.2rem] font-bold">5</p>
         </div>
         <div
-          className="Boat2 w-20 h-[4.6rem] absolute bottom-[2vw] left-[25vw] rotate15"
+          className="Boat2 w-20 h-[4.6rem] absolute bottom-[1vw] left-[35vw] rotate15"
           ref={boat1_6}
         >
           <p className="text-[1.2rem] font-bold">6</p>
         </div>
         <div
-          className="Boat w-20 h-[4.6rem] absolute  bottom-[2vw] left-[-1vw] rotate90"
+          className="Boat w-20 h-[4.6rem] absolute  bottom-[2vw] left-[9vw] rotate90"
           ref={boat1_7}
         >
           <p className="text-[1.2rem] font-bold">7</p>
@@ -277,7 +291,7 @@ const Game = ({ move1, setMove1 }) => {
         {/* Boxes in the corners */}
 
         {modalName === "Manufacturer" && (
-          <div className="absolute top-0 left-0 w-[50%] text-center bg-white rounded-3xl bg-opacity-80 py-2">
+          <div className="absolute z-[120] top-0 left-0 w-[50%] text-center bg-white rounded-3xl bg-opacity-80 py-2">
             <div className="flex items-center justify-between px-5">
               <div></div>
               <h2 className="font-bold text-xl">Manufacturer</h2>
@@ -315,7 +329,6 @@ const Game = ({ move1, setMove1 }) => {
                       Order
                     </button>
                   </div>
-
                 </form>
                 <h2>
                   Cost: <span className="font-bold text-red-500">$12</span>
@@ -340,7 +353,7 @@ const Game = ({ move1, setMove1 }) => {
         )}
 
         {modalName === "Distributor" && (
-          <div className="absolute top-0 right-0 w-[50%] text-center bg-white rounded-3xl bg-opacity-80 py-2">
+          <div className="absolute z-[120] top-0 right-0 w-[50%] text-center bg-white rounded-3xl bg-opacity-80 py-2">
             <div className="flex items-center justify-between px-5">
               <div></div>
               <h2 className="font-bold text-xl">Distributor</h2>
@@ -378,7 +391,6 @@ const Game = ({ move1, setMove1 }) => {
                       Order
                     </button>
                   </div>
-
                 </form>
                 <h2>
                   Cost: <span className="font-bold text-red-500">$20</span>
@@ -403,7 +415,7 @@ const Game = ({ move1, setMove1 }) => {
         )}
 
         {modalName === "Wholesaler" && (
-          <div className="absolute left-0 bottom-0 w-[50%] text-center bg-white rounded-3xl bg-opacity-80 py-2">
+          <div className="absolute z-[120] left-0 bottom-0 w-[50%] text-center bg-white rounded-3xl bg-opacity-80 py-2">
             <div className="flex items-center justify-between px-5">
               <div></div>
               <div className="flex items-center gap-2">
@@ -448,7 +460,6 @@ const Game = ({ move1, setMove1 }) => {
                       Order
                     </button>
                   </div>
-
                 </form>
                 <h2>
                   Cost: <span className="font-bold text-red-500">$12</span>
@@ -473,7 +484,7 @@ const Game = ({ move1, setMove1 }) => {
         )}
 
         {modalName === "Retailer" && (
-          <div className="absolute right-0 bottom-0 w-[50%] text-center bg-white rounded-3xl bg-opacity-80 py-2">
+          <div className="absolute z-[120] right-0 bottom-0 w-[50%] text-center bg-white rounded-3xl bg-opacity-80 py-2">
             <div className="flex items-center justify-between px-5">
               <div></div>
               <div className="flex items-center gap-2">
@@ -518,7 +529,6 @@ const Game = ({ move1, setMove1 }) => {
                       Order
                     </button>
                   </div>
-
                 </form>
                 <h2>
                   Cost: <span className="font-bold text-red-500">$12</span>

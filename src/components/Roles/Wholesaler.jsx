@@ -19,7 +19,7 @@ const Wholesaler = () => {
           fontWeight: 700,
           fontSize: "0.8vw",
         }}
-        hoardingProps={{ bottom: "11vw", left: "5vw", position: "absolute" }}
+        hoardingProps={{ bottom: "10vw", left: "4vw", position: "absolute" }}
         role="Wholesaler"
       />
     </div>

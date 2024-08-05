@@ -10,7 +10,7 @@
     width: 11vw;
     height: auto;
     bottom: 5vw;
-    right: 22vw;
+    right: 20vw;
 }
 .game-map-manufacturer {
     position: absolute;
@@ -24,7 +24,7 @@
     position: absolute;
     width: 8vw;
     height: auto;
-    top: 5vw;
-    right: 19vw;
+    top: 6vw;
+    right: 17.5vw;
     z-index: 1;
 }

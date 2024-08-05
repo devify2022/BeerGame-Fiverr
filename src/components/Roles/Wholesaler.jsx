@@ -13,13 +13,13 @@ const Wholesaler = () => {
             <RoleHoarding
         textStyle={{
           position: "absolute",
-          left: "1.3vw",
-          top: "1vw",
+          left: "1.0vw",
+          top: "0.5vw",
           color: "white",
           fontWeight: 700,
-          fontSize: "0.8vw",
+          fontSize: "0.8rem",
         }}
-        hoardingProps={{ bottom: "10vw", left: "4vw", position: "absolute" }}
+        hoardingProps={{ bottom: "8vw", left: "4vw", position: "absolute" }}
         role="Wholesaler"
       />
     </div>

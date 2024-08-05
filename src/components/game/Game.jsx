@@ -13,7 +13,7 @@ const Game = ({ move1, setMove1, handleToggleModal }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [value, setValue] = useState(0);
 
-  const [modalName, setModalName] = useState("Wholesalers");
+  const [modalName, setModalName] = useState("Wholesaler");
 
   const handleEdit = () => {
     setIsModalOpen(true);

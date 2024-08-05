@@ -28,9 +28,9 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/help" element={<Help />} />
         <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/game" element={<GameSimulation />} />
         <Route path="/blogs" element={<Blogs />} />
         <Route path="/auth" element={<Auth />} />
+        <Route path="/game" element={<GameSimulation />} />
         <Route path="/settings" element={<SettingPage />} />
         <Route path="/edit" element={<EditPage />} />
         <Route path="/session" element={<SessionPage/>} />

@@ -13,7 +13,7 @@ import Distributor from "../Roles/Distributor";
 
 const Map = () => {
   return (
-    <div id="game-map">
+    <div id="game-map" className="w-full">
       <Manufacturer />
       <Retailer />
       <Wholesaler />
@@ -21,7 +21,7 @@ const Map = () => {
       <Mountain
         style={{
           position: "absolute",
-          left: "15vw",
+          left: "18vw",
           top: "6vw",
           width: "10vw",
           zIndex: 2,
@@ -30,8 +30,8 @@ const Map = () => {
       <Mountain
         style={{
           position: "absolute",
-          left: "16vw",
-          top: "18vw",
+          left: "14vw",
+          top: "16vw",
           width: "10vw",
           zIndex: 2,
         }}
@@ -42,30 +42,30 @@ const Map = () => {
       <Trees
         style={{
           position: "absolute",
-          left: "15vw",
-          bottom: "10vw",
+          left: "14vw",
+          top: "10vw",
           zIndex: 2,
         }}
       />
       <Trees
-        style={{ position: "absolute", right: "48vw", top: "10vw", zIndex: 2 }}
+        style={{ position: "absolute", right: "28vw", top: "10vw", zIndex: 2 }}
       />
       <Trees
         style={{
           position: "absolute",
           left: "20vw",
-          bottom: "13vw",
+          bottom: "4vw",
           zIndex: 2,
         }}
       />
       <LightHouse
-        style={{ position: "absolute", left: "2vw", bottom: "10vw", zIndex: 2 }}
+        style={{ position: "absolute", left: "-5vw", bottom: "10vw", zIndex: 2 }}
       />
       <LightHouse
-        style={{ position: "absolute", right: "25vw", top: "5vw", zIndex: 2 }}
+        style={{ position: "absolute", right: "-2vw", top: "5vw", zIndex: 2 }}
       />
       <LightHouse
-        style={{ position: "absolute", right: "28vw", top: "20vw", zIndex: 2 }}
+        style={{ position: "absolute", right: "2vw", bottom: "5vw", zIndex: 2 }}
       />
 
       {/* <GameOrderBoat
@@ -83,8 +83,8 @@ const Map = () => {
         src={Stone}
         style={{
           position: "absolute",
-          left: "15vw",
-          top: "17vw",
+          left: "9vw",
+          top: "20vw",
           width: "4vw",
           zIndex: 2,
         }}
@@ -93,8 +93,8 @@ const Map = () => {
         src={Stone}
         style={{
           position: "absolute",
-          right: "42vw",
-          top: "11vw",
+          right: "24vw",
+          top: "10vw",
           width: "4vw",
           zIndex: 2,
         }}
@@ -103,8 +103,8 @@ const Map = () => {
         src={Stone}
         style={{
           position: "absolute",
-          left: "25vw",
-          bottom: "17vw",
+          left: "20vw",
+          bottom: "13vw",
           width: "3vw",
           zIndex: 2,
         }}

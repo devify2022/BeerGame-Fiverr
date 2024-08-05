@@ -2,22 +2,22 @@
     position: absolute;
     width: 8vw;
     height: auto;
-    bottom: 6vw;
-    left: 7vw;
+    bottom: 5vw;
+    left: 6vw;
 }
 .game-map-retailer {
     position: absolute;
     width: 11vw;
     height: auto;
     bottom: 5vw;
-    right: 40vw;
+    right: 22vw;
 }
 .game-map-manufacturer {
     position: absolute;
     width: 9vw;
     height: auto;
-    top: 5vw;
-    left: 8vw;
+    top: 4vw;
+    left: 7vw;
     z-index: 1;
 }
 .game-map-distributor {
@@ -25,6 +25,6 @@
     width: 8vw;
     height: auto;
     top: 5vw;
-    right: 37vw;
+    right: 19vw;
     z-index: 1;
 }

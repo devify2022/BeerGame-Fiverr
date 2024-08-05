@@ -26,12 +26,71 @@ ChartJS.register(
 
 const FinalConsumer = () => {
   const [showDiv, setShowDiv] = useState(0);
-  const [manualUpdate, setManualUpdate] = useState([4,8,8,8,8]); // Default values
-  const [inputValue, setInputValue] = useState('4,8,8,8,8');
-  const [manualEntryError, setManualEntryError] = useState("")
+  const [manualUpdate, setManualUpdate] = useState([4, 8, 8, 8, 8]); // Default values
+  const [inputValue, setInputValue] = useState("4,8,8,8,8");
+  const [manualEntryError, setManualEntryError] = useState("");
+  const [row1, setRow1] = useState([1, 4, 4, 0]);
+  const [numbers2, setNumbers2] = useState([5, 12, 8, 0]);
+
+  const handleChange = (e, arrayName, index) => {
+    const value = parseInt(e.target.value, 10);
+    if (arrayName === "row1") {
+      setRow1((prevRow1) => {
+        const newRow1 = [...prevRow1];
+        newRow1[index] = value;
+        return newRow1;
+      });
+    } else if (arrayName === "numbers2") {
+      setNumbers2((prevNumbers2) => {
+        const newNumbers2 = [...prevNumbers2];
+        newNumbers2[index] = value;
+        return newNumbers2;
+      });
+    }
+  };
+  const totalPoints = 12;
+
+  const generateData = () => {
+    const dataPoints = [];
+    const totalPoints = 12; // Total number of data points
+  
+    // Define the ranges and values for cycles
+    const [row1Start, row1End, row1Value, row1Breakpoint] = row1;
+    const [numbers2Start, numbers2End, numbers2Value, numbers2Breakpoint] = numbers2;
+  
+    const applyVariability = (value, breakpoint) => {
+      if (breakpoint > 0) {
+        const variation = Math.random() * breakpoint * 2 - breakpoint;
+        return value + variation;
+      }
+      return value;
+    };
+  
+    // Loop through each data point
+    for (let i = 0; i < totalPoints; i++) {
+      let value = 0;
+  
+      // Apply values from row1 if within the defined range
+      if (i >= row1Start && i < row1End) {
+        value = applyVariability(row1Value, row1Breakpoint);
+      }
+      // Apply values from numbers2 if within the defined range
+      else if (i >= numbers2Start && i < numbers2End) {
+        value = applyVariability(numbers2Value, numbers2Breakpoint);
+      }
+  
+      dataPoints.push(value);
+    }
+  
+    return dataPoints;
+  };
+  
+  
+  const res =  generateData()
+  
+  console.log({res})
 
   const numbers1 = manualUpdate; // Use manualUpdate for the chart data
-  const numbers2 = [12, 12, 11, 0];
 
   const labels = Array.from({ length: 12 }, (_, i) => (i + 1).toString()); // Labels from 1 to 12
 
@@ -40,7 +99,7 @@ const FinalConsumer = () => {
     datasets: [
       {
         label: "Consumer Demand",
-        data: numbers1,
+        data: showDiv === 0 ? numbers1 : generateData(),
         fill: false,
         borderColor: "rgb(75, 192, 192)",
         tension: 0.1,
@@ -74,24 +133,26 @@ const FinalConsumer = () => {
   const handleTextareaChange = (event) => {
     const value = event.target.value;
     setInputValue(value); // Update the state with the new input value
-  
+
     // Convert input value to an array of numbers
-    const valuesArray = value.split(',')
-      .filter(val => val.trim() !== '') // Remove empty values
-      .map(val => parseFloat(val.trim()))
-      .filter(val => !isNaN(val)); // Remove NaN values
-  
+    const valuesArray = value
+      .split(",")
+      .filter((val) => val.trim() !== "") // Remove empty values
+      .map((val) => parseFloat(val.trim()))
+      .filter((val) => !isNaN(val)); // Remove NaN values
+
     // Check if the array length is greater than 12 or empty
     if (valuesArray.length === 0) {
-      setManualEntryErrorr('Error: The input is empty.');
+      setManualEntryError("Error: The input is empty.");
     } else if (valuesArray.length > 12) {
-      setManualEntryError('Error: The array length exceeds the maximum limit of 12.');
+      setManualEntryError(
+        "Error: The array length exceeds the maximum limit of 12."
+      );
     } else {
       // No errors, update the state with valid data
       setManualUpdate(valuesArray);
     }
   };
-  
 
   return (
     <div>
@@ -134,7 +195,7 @@ const FinalConsumer = () => {
                 value={inputValue} // Join the array to display in textarea
                 onChange={handleTextareaChange}
               />
-            <p className="text-red-500">{setManualEntryError}</p>
+              {/* <p className="text-red-500">{ManualEntryError}</p> */}
             </div>
           )}
 
@@ -149,11 +210,13 @@ const FinalConsumer = () => {
 
               <div className="h-40">
                 <div className="grid grid-cols-2 lg:grid-cols-4 gap-5 mt-5">
-                  {numbers1.map((num, index) => (
+                  {row1.map((num, index) => (
                     <input
                       key={index}
                       type="number"
                       value={num}
+                      disabled={index === 0 ? true : false}
+                      onChange={(e) => handleChange(e, "row1", index)}
                       className="border w-28 h-8"
                     />
                   ))}
@@ -166,6 +229,8 @@ const FinalConsumer = () => {
                       key={index}
                       type="number"
                       value={num}
+                      disabled={index === 0 || index === 1 ? true : false}
+                      onChange={(e) => handleChange(e, "numbers2", index)}
                       className="border w-28 h-8"
                     />
                   ))}

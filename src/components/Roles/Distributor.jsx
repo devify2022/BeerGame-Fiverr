@@ -1,4 +1,4 @@
-import React from "react";
+
 import RoleHoarding from "../RoleHoarding/RoleHoarding";
 import './Roles.css'
 import distributer from "../../assets/Game/distributor.png"
@@ -22,13 +22,13 @@ const Distributor = () => {
         <RoleHoarding
         textStyle={{
           position: "absolute",
-          left: "1.4vw",
+          left: "2vw",
           top: "1vw",
           color: "white",
           fontWeight: 700,
-          fontSize: "0.8vw",
+          fontSize: "0.9vw",
         }}
-        hoardingProps={{ top: "2vw", right: "35vw", position: "absolute", zIndex:"99" }}
+        hoardingProps={{ top: "2vw", right: "11vw", position: "absolute", zIndex:"99" }}
         role="Distributor"
       />
     </div>

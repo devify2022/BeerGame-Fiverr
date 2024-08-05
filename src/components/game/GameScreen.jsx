@@ -166,7 +166,7 @@ const GameScreen = ({ name, setName, setShowModal1 }) => {
         )}
       </div>
 
-      <div className="my-0 md:my-0 lg:mt-4 w-[100%] lg:h-[75vh] md:h-[90vh] h-[86vh] flex items-center pt-10 bg-[#DDF6FF] border-2 ">
+      <div className="my-0 md:my-0 lg:mt-4 w-[100%] lg:h-[75vh] md:h-[90vh] h-[86vh] flex items-center justify-center pt-10 bg-[#DDF6FF]">
         <Game
           handleToggleModal={handleToggleModal}
           name={name}

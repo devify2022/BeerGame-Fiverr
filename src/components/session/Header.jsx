@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 const Header = ({ active, setActive }) => {
   return (
-    <div className="bg-[#F5B5BB]">
+    <div className="bg-gradient-to-b from-[#F5B5BB] to-white">
       <div className="p-10 flex flex-col gap-10 md:flex-row lg:flex-row items-center justify-between">
         <div className="flex  items-center gap-5">
           <div>

@@ -26,7 +26,7 @@ ChartJS.register(
 
 const FinalConsumer = () => {
   const [showDiv, setShowDiv] = useState(0);
-  const [manualUpdate, setManualUpdate] = useState([4,8,8,8,8]); // Default values
+  const [manualUpdate, setManualUpdate] = useState([4,8,8,2]); // Default values
   const [inputValue, setInputValue] = useState('4,8,8,8,8');
   const [manualEntryError, setManualEntryError] = useState("")
 
@@ -100,7 +100,7 @@ const FinalConsumer = () => {
         <h1 className="text-xl font-bold">Final Consumer Demand</h1>
       </div>
 
-      <div className="flex lg:flex-row flex-col items-center justify-between gap-5">
+      <div className="flex flex-col lg:flex-row items-center justify-between gap-5">
         <div className="md:w-[80%] lg:w-[50%] p-5">
           <div className="flex items-center justify-between border-b ">
             <h2
@@ -185,7 +185,7 @@ const FinalConsumer = () => {
         </div>
 
         {/* Graph */}
-        <div className="border-2 w-[50%] h-full border-red-500">
+        <div className="border-2 mt-14 w-full lg:w-[50%] h-full border-red-500">
           <Line data={data} options={options} />
         </div>
       </div>

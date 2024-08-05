@@ -24,7 +24,7 @@ const GameScreen = ({ name, setName, setShowModal1 }) => {
 
   return (
     <div className="lg:mt-[12vh] md:mt-[8vh] mt-[14vh] w-full flex-1 overflow-hidden">
-      <div className="grid  grid-cols-2 md:grid-cols-4 lg:grid-cols-6 justify-between items-center w-[95%] lg:w-[70%]  gap-5 ml-2 lg:ml-4 border-2 rounded-md py-2 px-5 ">
+      <div className="grid  grid-cols-2 md:grid-cols-4 lg:grid-cols-4 justify-between items-center w-[95%] lg:w-[70%]  gap-5 ml-2 lg:ml-4 border-2 rounded-md py-2 px-5 ">
         <div className="flex items-center gap-5">
           <img src={stocks} className="w-5" alt="" />
           <p>Stocks</p>
@@ -41,9 +41,9 @@ const GameScreen = ({ name, setName, setShowModal1 }) => {
           <img src={week} className="w-5" alt="" />
           <p>Week 0</p>
         </div>
-        <div className="flex items-center gap-2">
+        {/* <div className="flex items-center gap-2">
           <button onClick={() => setMove1(true)}>move</button>
-        </div>
+        </div> */}
       </div>
 
       <div>

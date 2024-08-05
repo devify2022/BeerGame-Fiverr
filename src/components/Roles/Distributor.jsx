@@ -22,13 +22,13 @@ const Distributor = () => {
         <RoleHoarding
         textStyle={{
           position: "absolute",
-          left: "2vw",
+          left: "1.4vw",
           top: "1vw",
           color: "white",
           fontWeight: 700,
-          fontSize: "0.9vw",
+          fontSize: "0.8vw",
         }}
-        hoardingProps={{ top: "2vw", right: "11vw", position: "absolute", zIndex:"99" }}
+        hoardingProps={{ top: "1vw", right: "15vw", position: "absolute", zIndex:"99" }}
         role="Distributor"
       />
     </div>

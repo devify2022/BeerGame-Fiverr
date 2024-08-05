@@ -42,19 +42,19 @@ const Map = () => {
       <Trees
         style={{
           position: "absolute",
-          left: "25vw",
-          bottom: "8vw",
+          left: "14vw",
+          top: "10vw",
           zIndex: 2,
         }}
       />
       <Trees
-        style={{ position: "absolute", right: "25vw", top: "15vw", zIndex: 2 }}
+        style={{ position: "absolute", right: "28vw", top: "10vw", zIndex: 2 }}
       />
       <Trees
         style={{
           position: "absolute",
-          left: "22vw",
-          bottom: "18vw",
+          left: "20vw",
+          bottom: "4vw",
           zIndex: 2,
         }}
       />
@@ -83,7 +83,7 @@ const Map = () => {
         src={Stone}
         style={{
           position: "absolute",
-          left: "10vw",
+          left: "9vw",
           top: "20vw",
           width: "4vw",
           zIndex: 2,
@@ -93,8 +93,8 @@ const Map = () => {
         src={Stone}
         style={{
           position: "absolute",
-          right: "22vw",
-          top: "12vw",
+          right: "24vw",
+          top: "10vw",
           width: "4vw",
           zIndex: 2,
         }}
@@ -103,7 +103,7 @@ const Map = () => {
         src={Stone}
         style={{
           position: "absolute",
-          left: "25vw",
+          left: "20vw",
           bottom: "13vw",
           width: "3vw",
           zIndex: 2,

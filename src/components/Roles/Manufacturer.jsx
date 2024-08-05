@@ -26,9 +26,9 @@ const Manufacturer = () => {
           top: "1vw",
           color: "white",
           fontWeight: 700,
-          fontSize: "0.9vw",
+          fontSize: "0.7vw",
         }}
-        hoardingProps={{ top: "0vw", left: "6vw", position: "absolute", zIndex:"99" }}
+        hoardingProps={{ top: "1vw", left: "5vw", position: "absolute", zIndex:"99" }}
         role="Manufacturer"
       />
     </div>

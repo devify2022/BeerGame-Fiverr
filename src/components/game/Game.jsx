@@ -13,7 +13,7 @@ const Game = ({ move1, setMove1, handleToggleModal }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [value, setValue] = useState(0);
 
-  const [modalName, setModalName] = useState("Wholesaler");
+  const [modalName, setModalName] = useState("Wholesalers");
 
   const handleEdit = () => {
     setIsModalOpen(true);
@@ -258,31 +258,31 @@ const Game = ({ move1, setMove1, handleToggleModal }) => {
           <p className="text-[1.2rem] font-bold">2</p>
         </div>
         <div
-          className="Boat2 w-20 h-[4.6rem] absolute top-[6vw] right-[13vw] "
+          className="Boat2 w-20 h-[4.6rem] absolute top-[6vw] right-[19vw] "
           ref={boat1_3}
         >
           <p className="text-[1.2rem] font-bold">3</p>
         </div>
         <div
-          className="Boat2 w-20 h-[4.6rem] absolute top-[18vw] right-[14vw] rotate25"
+          className="Boat2 w-20 h-[4.6rem] absolute top-[16vw] right-[20vw] rotate25"
           ref={boat1_4}
         >
           <p className="text-[1.2rem] font-bold">4</p>
         </div>
         <div
-          className="Boat2 w-20 h-[4.6rem] absolute bottom-[4vw] right-[18vw]"
+          className="Boat2 w-20 h-[4.6rem] absolute bottom-[3vw] right-[22vw]"
           ref={boat1_5}
         >
           <p className="text-[1.2rem] font-bold">5</p>
         </div>
         <div
-          className="Boat2 w-20 h-[4.6rem] absolute bottom-[2vw] left-[35vw] rotate15"
+          className="Boat2 w-20 h-[4.6rem] absolute bottom-[1vw] left-[35vw] rotate15"
           ref={boat1_6}
         >
           <p className="text-[1.2rem] font-bold">6</p>
         </div>
         <div
-          className="Boat w-20 h-[4.6rem] absolute  bottom-[3vw] left-[7vw] rotate90"
+          className="Boat w-20 h-[4.6rem] absolute  bottom-[2vw] left-[9vw] rotate90"
           ref={boat1_7}
         >
           <p className="text-[1.2rem] font-bold">7</p>
